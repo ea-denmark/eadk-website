@@ -9,14 +9,14 @@
 
 <section class="section">
   <div class="container">
-    <p class="section-intro">Effective Altruism Denmark has active local groups across the country. Find your local community and get involved in events, discussions, and projects near you.</p>
+    <p class="section-intro">{{ i18n "chaptersIntro" }}</p>
 
     <div class="chapter-grid">
       {{ range .Pages }}
       <a href="{{ .RelPermalink }}" class="chapter-card" style="text-decoration:none; color:inherit;">
         <h3>{{ .Title }}</h3>
         <p>{{ .Params.description }}</p>
-        <span class="btn btn--secondary" style="font-size:0.875rem; padding:0.5rem 1.25rem;">Learn More</span>
+        <span class="btn btn--secondary" style="font-size:0.875rem; padding:0.5rem 1.25rem;">{{ i18n "learnMore" }}</span>
       </a>
       {{ end }}
     </div>

@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="header-inner">
-    <a href="/" class="logo" aria-label="Effective Altruism Denmark home">
+    <a href="{{ .Site.Home.RelPermalink }}" class="logo" aria-label="Effective Altruism Denmark home">
       <span class="logo-text">Effective Altruism <strong>Denmark</strong></span>
     </a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -20,12 +20,25 @@
             </ul>
           </div>
         {{ else if not .Parent }}
-          <a href="{{ .URL }}" class="nav-link{{ if eq .Name "Donate" }} nav-link--donate{{ end }}"
+          <a href="{{ .URL }}" class="nav-link{{ if eq .Identifier "donate" }} nav-link--donate{{ end }}{{ if eq .Name "Donate" }} nav-link--donate{{ end }}{{ if eq .Name "Donér" }} nav-link--donate{{ end }}"
             {{ if strings.HasPrefix .URL "http" }}target="_blank" rel="noopener"{{ end }}>
             {{ .Name }}
           </a>
         {{ end }}
       {{ end }}
+      <div class="lang-toggle">
+        {{ if .IsTranslated }}
+          {{ range .Translations }}
+            <a href="{{ .RelPermalink }}" class="lang-link">{{ .Language.LanguageName }}</a>
+          {{ end }}
+        {{ else }}
+          {{ range .Site.Home.AllTranslations }}
+            {{ if ne .Language.Lang $.Site.Language.Lang }}
+              <a href="{{ .RelPermalink }}" class="lang-link">{{ .Language.LanguageName }}</a>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
     </nav>
   </div>
 </header>

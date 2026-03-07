@@ -1,0 +1,116 @@
+[subscribe]
+other = "Tilmeld"
+
+[newsletterTitle]
+other = "Tilmeld dig vores nyhedsbrev"
+
+[newsletterDesc]
+other = "Vi udsender et månedligt nyhedsbrev med nyheder om fællesskabet, arrangementer og jobopslag."
+
+[firstNamePlaceholder]
+other = "Fornavn"
+
+[emailPlaceholder]
+other = "E-mailadresse"
+
+[otherLinks]
+other = "Andre links"
+
+[learnMore]
+other = "Læs Mere"
+
+[moreInfo]
+other = "Mere Information"
+
+[getCareerGuidance]
+other = "Få Karrierevejledning"
+
+[attendEvent]
+other = "Deltag i et Arrangement"
+
+[takeAction]
+other = "Tag Action"
+
+[getInvolved]
+other = "Bliv Involveret"
+
+[getInvolvedIntro]
+other = "Der er mange måder at gøre en forskel på allerede i dag"
+
+[attendEventTitle]
+other = "Deltag i et Arrangement"
+
+[attendEventDesc]
+other = "Mød ligesindede til sociale arrangementer, foredrag og workshops i hele Danmark."
+
+[joinSlack]
+other = "Kom med på Slack"
+
+[joinSlackDesc]
+other = "Chat med det danske EA-fællesskab, stil spørgsmål, og følg med i hvad der sker."
+
+[getCareerAdvice]
+other = "Få Karriererådgivning"
+
+[getCareerAdviceDesc]
+other = "Book en gratis en-til-en snak om, hvordan du kan få større impact med din karriere."
+
+[startDonating]
+other = "Begynd at Donere Effektivt"
+
+[startDonatingDesc]
+other = "Giv hvor det betyder mest gennem vores partner, Giv Effektivt."
+
+[whatIsEA]
+other = "Hvad er effektiv altruisme?"
+
+[whatIsEADesc1]
+other = "Mange af os ønsker at gøre en meningsfuld forskel i verden. At opleve lidelse, uretfærdighed og død får os til at ville handle. Men at finde en konkret løsning på disse problemer, og ikke mindst at implementere den, er ikke ligetil."
+
+[whatIsEADesc2]
+other = "Effektiv altruisme tilbyder en løsning på denne udfordring. Det er et forskningsfelt dedikeret til at maksimere effekten af vores indsats for at hjælpe andre. Ved at anvende grundig evidens og omhyggelig tænkning søger effektiv altruisme at besvare spørgsmålet om, hvordan vi kan hjælpe andre mest effektivt."
+
+[community]
+other = "Fællesskab"
+
+[findChapter]
+other = "Find Din Lokalgruppe"
+
+[findChapterIntro]
+other = "Find effektive altruister i din by"
+
+[learnMoreLabel]
+other = "Læs Mere"
+
+[faqLabel]
+other = "Ofte Stillede Spørgsmål"
+
+[faqWhatIsEA]
+other = "Hvad er effektiv altruisme?"
+
+[faqWhatIsEAAnswer]
+other = "Effektiv altruisme er et forskningsfelt og fællesskab, der er dedikeret til at finde de bedste måder at hjælpe andre på. Det bruger evidens og omhyggelig ræsonnering til at bestemme de mest effektive måder at forbedre verden på. Det handler ikke bare om at spørge \"Hvordan kan jeg gøre en forskel?\" men \"Hvordan kan jeg gøre den <em>største</em> forskel?\""
+
+[faqGetInvolved]
+other = "Hvordan kan jeg blive involveret?"
+
+[faqGetInvolvedAnswer]
+other = "Der er mange måder at komme i gang på! Du kan deltage i et af vores arrangementer, tilmelde dig en introduktionslæsegruppe, booke en gratis karrieresnak, eller starte med at besøge <a href=\"https://giveffektivt.dk\">Giv Effektivt</a> for at lære om effektiv donation. Vi byder velkommen til folk på alle trin af deres EA-rejse."
+
+[faqDonate]
+other = "Hvor bør jeg donere?"
+
+[faqDonateAnswer]
+other = "Vi anbefaler at donere gennem <a href=\"https://giveffektivt.dk\">Giv Effektivt</a>, vores danske søsterorganisation. De følger forskning fra GiveWell og andre evalueringsorganer for at anbefale velgørenhedsorganisationer, der redder flest liv per doneret krone. Du får også dansk skattefradrag."
+
+[faqOnlyMoney]
+other = "Handler EA kun om at donere penge?"
+
+[faqOnlyMoneyAnswer]
+other = "Slet ikke! Selvom effektiv donation er en vigtig del, omfatter EA også karrierevalg, frivilligt arbejde, forskning og fællesskabsopbygning. Mange oplever, at valg af den rette karriere er en af de beslutninger med størst impact. Vores karrierevejledning kan hjælpe dig med at tænke dine muligheder igennem."
+
+[mediaCoverage]
+other = "Mediedækning"
+
+[chaptersIntro]
+other = "Effektiv Altruisme Danmark har aktive lokalgrupper over hele landet. Find dit lokale fællesskab og bliv involveret i arrangementer, diskussioner og projekter nær dig."

@@ -2,13 +2,13 @@
   <div class="container">
     <div class="newsletter-inner">
       <div class="newsletter-text">
-        <h2>Join Our Newsletter</h2>
-        <p>We produce a monthly newsletter which updates followers on community news, events, and job listings.</p>
+        <h2>{{ i18n "newsletterTitle" }}</h2>
+        <p>{{ i18n "newsletterDesc" }}</p>
       </div>
       <form class="newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6V4o9vOMVLaLlCwn15SxRj-6_1pJQiSkM5wyE2MCCe1RA3g/formResponse" method="POST" target="_blank">
-        <input type="text" name="entry.1067840490" placeholder="First Name" required aria-label="First Name">
-        <input type="email" name="entry.977339127" placeholder="Email Address" required aria-label="Email Address">
-        <button type="submit" class="btn btn--primary">Subscribe</button>
+        <input type="text" name="entry.1067840490" placeholder="{{ i18n "firstNamePlaceholder" }}" required aria-label="{{ i18n "firstNamePlaceholder" }}">
+        <input type="email" name="entry.977339127" placeholder="{{ i18n "emailPlaceholder" }}" required aria-label="{{ i18n "emailPlaceholder" }}">
+        <button type="submit" class="btn btn--primary">{{ i18n "subscribe" }}</button>
       </form>
     </div>
   </div>
