@@ -1,69 +1,124 @@
 baseURL = 'https://effectivealtruism.dk/'
-languageCode = 'en'
 title = 'Effective Altruism Denmark'
 theme = 'eadk'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'EN'
+    weight = 1
+    [languages.en.params]
+      description = "How do we help others the most with our time?"
+      tagline = "Let's Get Better at Doing Good"
+
+    [[languages.en.menu.main]]
+      name = "Take Action"
+      weight = 1
+      identifier = "take-action"
+      url = "#"
+    [[languages.en.menu.main]]
+      name = "Become a Member"
+      parent = "take-action"
+      url = "/become-a-member/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Career Guidance"
+      parent = "take-action"
+      url = "/guidance/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Events"
+      weight = 2
+      url = "/events/"
+    [[languages.en.menu.main]]
+      name = "Local Groups"
+      weight = 3
+      url = "/chapters/"
+    [[languages.en.menu.main]]
+      name = "About Us"
+      weight = 4
+      identifier = "about"
+      url = "#"
+    [[languages.en.menu.main]]
+      name = "About"
+      parent = "about"
+      url = "/about/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Contact"
+      parent = "about"
+      url = "/contact/"
+      weight = 3
+    [[languages.en.menu.main]]
+      name = "Donate"
+      weight = 5
+      url = "https://giveffektivt.dk"
+
+  [languages.da]
+    languageCode = 'da'
+    languageName = 'DA'
+    weight = 2
+    [languages.da.params]
+      description = "Hvordan hjælper vi andre mest med vores tid?"
+      tagline = "Lad os blive bedre til at gøre godt"
+
+    [[languages.da.menu.main]]
+      name = "Tag Action"
+      weight = 1
+      identifier = "take-action"
+      url = "#"
+    [[languages.da.menu.main]]
+      name = "Bliv Medlem"
+      parent = "take-action"
+      url = "/da/bliv-medlem/"
+      weight = 1
+    [[languages.da.menu.main]]
+      name = "Karrierevejledning"
+      parent = "take-action"
+      url = "/da/vejledning/"
+      weight = 2
+    [[languages.da.menu.main]]
+      name = "Arrangementer"
+      weight = 2
+      url = "/da/arrangementer/"
+    [[languages.da.menu.main]]
+      name = "Lokalgrupper"
+      weight = 3
+      url = "/da/lokalgrupper/"
+    [[languages.da.menu.main]]
+      name = "Om Os"
+      weight = 4
+      identifier = "about"
+      url = "#"
+    [[languages.da.menu.main]]
+      name = "Om"
+      parent = "about"
+      url = "/da/om/"
+      weight = 1
+    [[languages.da.menu.main]]
+      name = "Kontakt"
+      parent = "about"
+      url = "/da/kontakt/"
+      weight = 3
+    [[languages.da.menu.main]]
+      name = "Donér"
+      weight = 5
+      url = "https://giveffektivt.dk"
 
 [params]
-description = "How do we help others the most with our time?"
-tagline = "Let's Get Better at Doing Good"
-email = "contact@effectivealtruism.dk"
-address = "Vesterbrogade 149, Bygning 5"
-city = "1620 København"
-cvr = "41417226"
-facebook = "https://www.facebook.com/EffectiveAltruismDK"
-linkedin = "https://www.linkedin.com/company/11438277"
-instagram = "https://www.instagram.com/effectivealtruismdenmark/"
-youtube = "https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured"
-donateURL = "https://giveffektivt.dk"
-bookChatURL = "/guidance/"
-slackInviteURL = "https://join.slack.com/t/eadenmark/shared_invite/zt-34qnyn9ma-gM2gCSp2I~xQN96kp~FZlA"
-slackOfficeChannelURL = "https://eadenmark.slack.com/archives/C08RK1A0J1Z"
-
-[menu]
-[[menu.main]]
-name = "Take Action"
-weight = 1
-identifier = "take-action"
-url = "#"
-[[menu.main]]
-name = "Become a Member"
-parent = "take-action"
-url = "/become-a-member/"
-weight = 1
-[[menu.main]]
-name = "Career Guidance"
-parent = "take-action"
-url = "/guidance/"
-weight = 2
-[[menu.main]]
-name = "Events"
-weight = 2
-url = "/events/"
-[[menu.main]]
-name = "Local Groups"
-weight = 3
-url = "/chapters/"
-
-[[menu.main]]
-name = "About Us"
-weight = 4
-identifier = "about"
-url = "#"
-[[menu.main]]
-name = "About"
-parent = "about"
-url = "/about/"
-weight = 1
-[[menu.main]]
-name = "Contact"
-parent = "about"
-url = "/contact/"
-weight = 3
-
-[[menu.main]]
-name = "Donate"
-weight = 5
-url = "https://giveffektivt.dk"
+  email = "contact@effectivealtruism.dk"
+  address = "Vesterbrogade 149, Bygning 5"
+  city = "1620 København"
+  cvr = "41417226"
+  facebook = "https://www.facebook.com/EffectiveAltruismDK"
+  linkedin = "https://www.linkedin.com/company/11438277"
+  instagram = "https://www.instagram.com/effectivealtruismdenmark/"
+  youtube = "https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured"
+  donateURL = "https://giveffektivt.dk"
+  slackInviteURL = "https://join.slack.com/t/eadenmark/shared_invite/zt-34qnyn9ma-gM2gCSp2I~xQN96kp~FZlA"
+  slackOfficeChannelURL = "https://eadenmark.slack.com/archives/C08RK1A0J1Z"
 
 [markup]
 [markup.goldmark]
