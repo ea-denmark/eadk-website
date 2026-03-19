@@ -6,7 +6,7 @@ hero: true
 
 ## Membership Benefits
 
-Annual membership dues are **50 DKK**. As a member you can:
+Annual membership dues are **150 DKK**. As a member you can:
 
 - Choose your membership pathway and engagement level
 - Attend annual events including our summer retreat
@@ -16,10 +16,9 @@ Annual membership dues are **50 DKK**. As a member you can:
 - Volunteer for impactful projects
 - Provide strategic input and vote at our General Assembly
 
-*If you are experiencing financial hardship, exceptions can be made. Please reach out to us.*
+_If you are experiencing financial hardship, exceptions can be made. Please
+reach out to us._
 
 ## Ready to Join?
 
-Contact us at [contact@effectivealtruism.dk](mailto:contact@effectivealtruism.dk) to become a member, or use the button below.
-
-<a href="mailto:contact@effectivealtruism.dk?subject=Membership%20Interest" class="btn btn--primary btn--lg">Become a Member</a>
+<script type="module" src="https://donorbox.org/widgets.js" async></script><dbox-widget campaign="become-a-member-of-effective-altruism-denmark" type="donation_form" enable-auto-scroll="true"></dbox-widget>
