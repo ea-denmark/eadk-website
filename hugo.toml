@@ -16,6 +16,8 @@ theme = 'eadk'
   youtube = "https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured"
   donateURL = "https://giveffektivt.dk"
   bookChatURL = "/guidance/"
+  # TODO: replace with a never-expiring Slack invite link before merging (workspace owner/admin can generate one).
+  slackInviteURL = "https://join.slack.com/t/REPLACE-ME/shared_invite/REPLACE-ME"
 
 [menu]
   [[menu.main]]
