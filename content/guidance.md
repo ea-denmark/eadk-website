@@ -30,6 +30,4 @@ hero: true
 
 ## Interested?
 
-If you'd like to receive free career guidance, please reach out to us at [contact@effectivealtruism.dk](mailto:contact@effectivealtruism.dk) or book a chat using the button below.
-
-<a href="mailto:contact@effectivealtruism.dk?subject=Career%20Guidance%20Interest" class="btn btn--primary">Get in Touch</a>
+If you'd like to receive free career guidance, please reach out to us at [contact@effectivealtruism.dk](mailto:contact@effectivealtruism.dk).
