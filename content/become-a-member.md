@@ -21,4 +21,4 @@ reach out to us._
 
 ## Ready to Join?
 
-<script type="module" src="https://donorbox.org/widgets.js" async></script><dbox-widget campaign="become-a-member-of-effective-altruism-denmark" type="donation_form" enable-auto-scroll="true"></dbox-widget>
+<script type="module" src="https://donorbox.org/widgets.js" async></script><dbox-widget campaign="ea-denmark-membership" type="donation_form" enable-auto-scroll="true"></dbox-widget>
