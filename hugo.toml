@@ -4,67 +4,68 @@ title = 'Effective Altruism Denmark'
 theme = 'eadk'
 
 [params]
-  description = "How do we help others the most with our time?"
-  tagline = "Let's Get Better at Doing Good"
-  email = "contact@effectivealtruism.dk"
-  address = "Vesterbrogade 149, Bygning 5"
-  city = "1620 København"
-  cvr = "41417226"
-  facebook = "https://www.facebook.com/EffectiveAltruismDK"
-  linkedin = "https://www.linkedin.com/company/11438277"
-  instagram = "https://www.instagram.com/effectivealtruismdenmark/"
-  youtube = "https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured"
-  donateURL = "https://giveffektivt.dk"
-  bookChatURL = "/guidance/"
-  slackInviteURL = "https://join.slack.com/t/eadenmark/shared_invite/zt-34qnyn9ma-gM2gCSp2I~xQN96kp~FZlA"
+description = "How do we help others the most with our time?"
+tagline = "Let's Get Better at Doing Good"
+email = "contact@effectivealtruism.dk"
+address = "Vesterbrogade 149, Bygning 5"
+city = "1620 København"
+cvr = "41417226"
+facebook = "https://www.facebook.com/EffectiveAltruismDK"
+linkedin = "https://www.linkedin.com/company/11438277"
+instagram = "https://www.instagram.com/effectivealtruismdenmark/"
+youtube = "https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured"
+donateURL = "https://giveffektivt.dk"
+bookChatURL = "/guidance/"
+slackInviteURL = "https://join.slack.com/t/eadenmark/shared_invite/zt-34qnyn9ma-gM2gCSp2I~xQN96kp~FZlA"
+slackOfficeChannelURL = "https://eadenmark.slack.com/archives/C08RK1A0J1Z"
 
 [menu]
-  [[menu.main]]
-    name = "Take Action"
-    weight = 1
-    identifier = "take-action"
-    url = "#"
-  [[menu.main]]
-    name = "Become a Member"
-    parent = "take-action"
-    url = "/become-a-member/"
-    weight = 1
-  [[menu.main]]
-    name = "Career Guidance"
-    parent = "take-action"
-    url = "/guidance/"
-    weight = 2
-  [[menu.main]]
-    name = "Events"
-    weight = 2
-    url = "/events/"
-  [[menu.main]]
-    name = "Local Groups"
-    weight = 3
-    url = "/chapters/"
+[[menu.main]]
+name = "Take Action"
+weight = 1
+identifier = "take-action"
+url = "#"
+[[menu.main]]
+name = "Become a Member"
+parent = "take-action"
+url = "/become-a-member/"
+weight = 1
+[[menu.main]]
+name = "Career Guidance"
+parent = "take-action"
+url = "/guidance/"
+weight = 2
+[[menu.main]]
+name = "Events"
+weight = 2
+url = "/events/"
+[[menu.main]]
+name = "Local Groups"
+weight = 3
+url = "/chapters/"
 
-  [[menu.main]]
-    name = "About Us"
-    weight = 4
-    identifier = "about"
-    url = "#"
-  [[menu.main]]
-    name = "About"
-    parent = "about"
-    url = "/about/"
-    weight = 1
-  [[menu.main]]
-    name = "Contact"
-    parent = "about"
-    url = "/contact/"
-    weight = 3
+[[menu.main]]
+name = "About Us"
+weight = 4
+identifier = "about"
+url = "#"
+[[menu.main]]
+name = "About"
+parent = "about"
+url = "/about/"
+weight = 1
+[[menu.main]]
+name = "Contact"
+parent = "about"
+url = "/contact/"
+weight = 3
 
-  [[menu.main]]
-    name = "Donate"
-    weight = 5
-    url = "https://giveffektivt.dk"
+[[menu.main]]
+name = "Donate"
+weight = 5
+url = "https://giveffektivt.dk"
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
