@@ -18,4 +18,3 @@ Ask in our <a href="{{ .Site.Params.slackOfficeChannelURL }}">office channel</a>
 - [Facebook](https://www.facebook.com/EffectiveAltruismDK)
 - [LinkedIn](https://www.linkedin.com/company/11438277)
 - [Instagram](https://www.instagram.com/effectivealtruismdenmark/)
-- [YouTube](https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured)
