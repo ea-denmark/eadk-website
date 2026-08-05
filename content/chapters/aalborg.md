@@ -41,6 +41,4 @@ The best way to stay on top of future events is our [Facebook group](https://www
   </div>
 </div>
 
-Got a question, or want to talk something through before showing up? Come say hi to us on Slack.
-
-<a href="{{< param slackInviteURL >}}" class="btn btn--outline">Join us on Slack</a>
+Got a question, or want to talk something through before showing up? Come say hi to us on [Slack]({{< param slackInviteURL >}}).
