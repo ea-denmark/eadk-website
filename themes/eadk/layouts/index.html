@@ -1,5 +1,10 @@
 {{ define "main" }}
 
+{{/* Look pages up by content path so links follow each language's own slug */}}
+{{ $guidance := .Site.GetPage "/guidance" }}
+{{ $events := .Site.GetPage "/events" }}
+{{ $introduction := .Site.GetPage "/introduction" }}
+
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-overlay"></div>
@@ -7,8 +12,8 @@
     <h1>Effective Altruism Denmark</h1>
     <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
     <div class="hero-ctas">
-      <a href="{{ "guidance/" | relLangURL }}" class="btn btn--primary btn--lg">{{ i18n "getCareerGuidance" }}</a>
-      <a href="{{ "events/" | relLangURL }}" class="btn btn--outline btn--lg">{{ i18n "attendEvent" }}</a>
+      <a href="{{ $guidance.RelPermalink }}" class="btn btn--primary btn--lg">{{ i18n "getCareerGuidance" }}</a>
+      <a href="{{ $events.RelPermalink }}" class="btn btn--outline btn--lg">{{ i18n "attendEvent" }}</a>
     </div>
   </div>
 </section>
@@ -21,7 +26,7 @@
     <p class="section-intro">{{ i18n "getInvolvedIntro" }}</p>
 
     <div class="pathway-grid">
-      <a href="{{ "events/" | relLangURL }}" class="pathway-card">
+      <a href="{{ $events.RelPermalink }}" class="pathway-card">
         <div class="pathway-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
             <rect x="6" y="10" width="36" height="32" rx="4"/>
@@ -46,7 +51,7 @@
         <p>{{ i18n "joinSlackDesc" }}</p>
       </a>
 
-      <a href="{{ "guidance/" | relLangURL }}" class="pathway-card">
+      <a href="{{ $guidance.RelPermalink }}" class="pathway-card">
         <div class="pathway-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
             <rect x="8" y="14" width="32" height="24" rx="3"/>
@@ -85,7 +90,7 @@
       <div class="two-col__text">
         <p>{{ i18n "whatIsEADesc1" }}</p>
         <p>{{ i18n "whatIsEADesc2" }}</p>
-        <a href="{{ "introduction/" | relLangURL }}" class="btn btn--secondary">{{ i18n "moreInfo" }}</a>
+        <a href="{{ $introduction.RelPermalink }}" class="btn btn--secondary">{{ i18n "moreInfo" }}</a>
       </div>
     </div>
   </div>
