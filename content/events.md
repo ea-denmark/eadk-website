@@ -13,7 +13,7 @@ We regularly host:
 - **Reading groups** covering key EA texts
 - **Guest lectures** from researchers and practitioners
 
-Follow us on [Facebook](https://www.facebook.com/EffectiveAltruismDK) for event updates, or [become a member](/become-a-member/) to get access to our community calendar.
+Follow us on [Facebook](https://www.facebook.com/EffectiveAltruismDK) for event updates, or [become a member]({{< relref "become-a-member.md" >}}) to get access to our community calendar.
 
 ## Upcoming Events
 

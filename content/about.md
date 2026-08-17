@@ -1,13 +1,13 @@
 ---
 title: "About Us"
-subtitle: "Building a community of do-gooders"
+subtitle: "Find the best ways to help others"
 hero: true
 ---
 
 <div class="two-col">
   <div class="two-col__text">
     <h2>Who We Are</h2>
-    <p>Effective Altruism Denmark is an Almen Forening steered by passionate volunteers and guided by its members. Everyone aims to make a positive impact, but lots of ways of doing good are ineffective. Our core goal is to answer the question: <strong>How can we use our time and money to help others the most?</strong></p>
+    <p>Effective Altruism Denmark is a member-governed association run by dedicated volunteers. Everyone aims to make a positive impact, but lots of ways of doing good are ineffective. Our core goal is to answer the question: <strong>How can we use our time and money to help others the most?</strong></p>
   </div>
   <div class="two-col__media">
     <img src="/images/retreat-2023.png" alt="Effective Altruism Denmark Retreat 2023" loading="lazy">
@@ -18,7 +18,7 @@ hero: true
   <div class="two-col__text">
     <h2>Our Practical Mission</h2>
     <ul>
-      <li><strong>Fundraising for top charities:</strong> We are committed to raising funds for the world's most pressing challenges. Our sister organisation, GivEffektivt, raises millions of DKK for the most evidence-backed, high-impact global health interventions.</li>
+      <li><strong>Fundraising for top charities:</strong> We are committed to raising funds for the world's most pressing challenges. Our sister organisation, Giv Effektivt, raises millions of DKK for the most evidence-backed, high-impact global health interventions.</li>
       <li><strong>Channelling talent to important issues:</strong> Our ambition is to direct talent towards the world's most neglected issues. Through our specialised programs, career courses, and one-on-one career guidance.</li>
       <li><strong>Shaping well thought-out policy:</strong> We advocate for policies that address the world's most critical problems. Our focus includes ensuring the safe development of AI, preventing future pandemics, optimising the effectiveness of development aid, and addressing the ethical concerns of factory farming.</li>
     </ul>
@@ -46,7 +46,7 @@ hero: true
 
 <div class="stats-grid">
   <div class="stat-card">
-    <div class="stat-number">9M+</div>
+    <div class="stat-number">11M+</div>
     <div class="stat-label">DKK Raised For Effective Global Health Charities</div>
   </div>
   <div class="stat-card">
