@@ -4,11 +4,14 @@ subtitle: "Vi vil meget gerne høre fra dig"
 slug: "kontakt"
 ---
 
-**Effektiv Altruisme Danmark**
-Vesterbrogade 149, Bygning 5
-1620 København
+**Slack** Vores [Slack]({{< param slackInviteURL >}}) er det bedste sted at komme i kontakt med os og følge med i, hvad der sker.
+
+**Kontoret i København** \
+Vesterbrogade 149, Bygning 5, 1620 København \
+Skriv i vores [kontorkanal]({{< param slackOfficeChannelURL >}}) for at høre, hvornår der er nogen.
 
 **E-mail:** [contact@effectivealtruism.dk](mailto:contact@effectivealtruism.dk)
+
 **CVR:** 41417226
 
 ## Find Os Online
@@ -16,4 +19,3 @@ Vesterbrogade 149, Bygning 5
 - [Facebook](https://www.facebook.com/EffectiveAltruismDK)
 - [LinkedIn](https://www.linkedin.com/company/11438277)
 - [Instagram](https://www.instagram.com/effectivealtruismdenmark/)
-- [YouTube](https://www.youtube.com/channel/UCGmtXxP3dHWz9Tte_k9spzQ/featured)

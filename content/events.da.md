@@ -14,7 +14,7 @@ Vi afholder regelmæssigt:
 - **Læsegrupper** der dækker centrale EA-tekster
 - **Gæsteforelæsninger** fra forskere og praktikere
 
-Følg os på [Facebook](https://www.facebook.com/EffectiveAltruismDK) for arrangementer, eller [bliv medlem](/da/bliv-medlem/) for at få adgang til vores fællesskabskalender.
+Følg os på [Facebook](https://www.facebook.com/EffectiveAltruismDK) for arrangementer, eller [bliv medlem]({{< relref "become-a-member.md" >}}) for at få adgang til vores fællesskabskalender.
 
 ## Kommende Arrangementer
 
