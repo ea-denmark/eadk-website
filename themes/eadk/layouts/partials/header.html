@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="header-inner">
-    <a href="{{ .Site.Home.RelPermalink }}" class="logo" aria-label="Effective Altruism Denmark home">
-      <span class="logo-text">Effective Altruism <strong>Denmark</strong></span>
+    <a href="{{ .Site.Home.RelPermalink }}" class="logo" aria-label="{{ .Site.Title }}">
+      <span class="logo-text">{{ i18n "siteNameFirst" }} <strong>{{ i18n "siteNameLast" }}</strong></span>
     </a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>

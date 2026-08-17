@@ -8,14 +8,19 @@ defaultContentLanguageInSubdir = false
   [languages.en]
     languageCode = 'en'
     languageName = 'EN'
+    title = 'Effective Altruism Denmark'
     weight = 1
     [languages.en.params]
       description = "How do we help others the most with our time?"
       tagline = "Let's Get Better at Doing Good"
 
     [[languages.en.menu.main]]
-      name = "Take Action"
+      name = "What is EA?"
       weight = 1
+      url = "/introduction/"
+    [[languages.en.menu.main]]
+      name = "Take Action"
+      weight = 2
       identifier = "take-action"
       url = "#"
     [[languages.en.menu.main]]
@@ -30,43 +35,41 @@ defaultContentLanguageInSubdir = false
       weight = 2
     [[languages.en.menu.main]]
       name = "Events"
-      weight = 2
+      weight = 3
       url = "/events/"
     [[languages.en.menu.main]]
       name = "Local Groups"
-      weight = 3
+      weight = 4
       url = "/chapters/"
     [[languages.en.menu.main]]
       name = "About Us"
-      weight = 4
-      identifier = "about"
-      url = "#"
-    [[languages.en.menu.main]]
-      name = "About"
-      parent = "about"
+      weight = 5
       url = "/about/"
-      weight = 1
     [[languages.en.menu.main]]
       name = "Contact"
-      parent = "about"
+      weight = 6
       url = "/contact/"
-      weight = 3
     [[languages.en.menu.main]]
       name = "Donate"
-      weight = 5
+      weight = 7
       url = "https://giveffektivt.dk"
 
   [languages.da]
     languageCode = 'da'
     languageName = 'DA'
+    title = 'Effektiv Altruisme Danmark'
     weight = 2
     [languages.da.params]
       description = "Hvordan hjælper vi andre mest med vores tid?"
       tagline = "Lad os blive bedre til at gøre godt"
 
     [[languages.da.menu.main]]
-      name = "Tag Action"
+      name = "Hvad er EA?"
       weight = 1
+      url = "/da/introduktion/"
+    [[languages.da.menu.main]]
+      name = "Kom i Gang"
+      weight = 2
       identifier = "take-action"
       url = "#"
     [[languages.da.menu.main]]
@@ -81,30 +84,23 @@ defaultContentLanguageInSubdir = false
       weight = 2
     [[languages.da.menu.main]]
       name = "Arrangementer"
-      weight = 2
+      weight = 3
       url = "/da/arrangementer/"
     [[languages.da.menu.main]]
-      name = "Lokalgrupper"
-      weight = 3
-      url = "/da/lokalgrupper/"
+      name = "Lokalforeninger"
+      weight = 4
+      url = "/da/lokalforeninger/"
     [[languages.da.menu.main]]
       name = "Om Os"
-      weight = 4
-      identifier = "about"
-      url = "#"
-    [[languages.da.menu.main]]
-      name = "Om"
-      parent = "about"
-      url = "/da/om/"
-      weight = 1
+      weight = 5
+      url = "/da/om-os/"
     [[languages.da.menu.main]]
       name = "Kontakt"
-      parent = "about"
+      weight = 6
       url = "/da/kontakt/"
-      weight = 3
     [[languages.da.menu.main]]
       name = "Donér"
-      weight = 5
+      weight = 7
       url = "https://giveffektivt.dk"
 
 [params]
