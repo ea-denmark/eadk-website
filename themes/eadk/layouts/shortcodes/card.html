@@ -1,0 +1,12 @@
+{{- $title := .Get "title" -}}
+{{- $url := .Get "url" -}}
+{{- $tag := .Get "tag" -}}
+{{- $author := .Get "author" -}}
+<div class="card">
+  <div class="card-body">
+    {{- with $tag }}<span class="card-tag">{{ . }}</span>{{ end }}
+    <h4 class="card-title">{{ with $url }}<a href="{{ . }}">{{ $title }}</a>{{ else }}{{ $title }}{{ end }}</h4>
+    {{- with $author }}<p class="card-author">{{ . }}</p>{{ end }}
+    {{- with .Inner }}<div class="card-excerpt">{{ . | markdownify }}</div>{{ end }}
+  </div>
+</div>
