@@ -1033,3 +1033,21 @@ h4 { font-size: 1.125rem; }
        heights on purpose, since they are read as parallel items. --- */
 .card-grid { align-items: start; }
 /* --- end FIX 3 --- */
+/* --- FIX 4: lighter card chrome. Heavy 1px borders around thin, image-less
+       resource cards read as empty boxes; a soft tint groups them instead. --- */
+.content--narrow .card {
+  border: none;
+  background: var(--color-bg-alt);
+  box-shadow: none;
+}
+.content--narrow .card-body { padding: 1.25rem 1.5rem; }
+.content--narrow .card-title { font-size: 1.0625rem; line-height: 1.35; }
+.content--narrow .card-excerpt { font-size: 0.9rem; }
+.content--narrow .value-card {
+  border: none;
+  background: var(--color-bg-alt);
+  padding: 1.75rem;
+}
+.content--narrow .value-card:hover { transform: none; box-shadow: none; }
+.content--narrow .value-card p { max-width: none; }
+/* --- end FIX 4 --- */
