@@ -17,7 +17,7 @@
 {{ end }}
 
 <section class="section">
-  <div class="container content">
+  <div class="container content{{ if .Params.narrow }} content--narrow{{ end }}">
     {{ .Content }}
 
     {{ with .Params.author }}
