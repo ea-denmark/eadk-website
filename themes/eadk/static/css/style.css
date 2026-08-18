@@ -1028,3 +1028,8 @@ h4 { font-size: 1.125rem; }
 .content--narrow .guidance-values { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
 .content--narrow .stats-grid { gap: 1.5rem; margin: 2rem 0; }
 /* --- end FIX 2 --- */
+/* --- FIX 3: stop resource cards stretching to the tallest sibling, which left
+       dead space under short ones. Concept cards (values / guidance) keep equal
+       heights on purpose, since they are read as parallel items. --- */
+.card-grid { align-items: start; }
+/* --- end FIX 3 --- */
