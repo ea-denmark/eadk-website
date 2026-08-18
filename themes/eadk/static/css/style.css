@@ -1008,3 +1008,23 @@ h4 { font-size: 1.125rem; }
   .faq-item summary { padding: 16px 20px; font-size: 0.95rem; }
   .faq-answer { padding: 0 20px 16px; font-size: 0.9rem; }
 }
+
+/* =========================================================================
+   LAYOUT FIXES — each block is self-contained and can be deleted on its own.
+   All rules are scoped to `.content--narrow`, opted into per page with
+   `narrow: true` in front matter, so nothing else on the site is affected.
+   ========================================================================= */
+
+/* --- FIX 2: readable measure on long-form pages.
+       Prose is capped at ~68 characters; grids and media keep the wider
+       column so cards do not become cramped. --- */
+.content--narrow { max-width: 1040px; }
+.content--narrow > p,
+.content--narrow > ul,
+.content--narrow > ol,
+.content--narrow > blockquote { max-width: 68ch; }
+.content--narrow .card-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.content--narrow .values-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.content--narrow .guidance-values { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+.content--narrow .stats-grid { gap: 1.5rem; margin: 2rem 0; }
+/* --- end FIX 2 --- */
