@@ -1,0 +1,30 @@
+/* =============================================================================
+   VARIANT — "Norge Rød"
+   The Norge system with EA Denmark's own red substituted for the forest green.
+   Everything structural — the announcement card, the explain-before-you-ask
+   ordering, the borderless grouping, the Inter-600 type scale — comes from
+   theme-norge.css, which the loader pulls in first. Only the brand hue and the
+   paper it sits on are redefined here.
+   ========================================================================== */
+
+body.theme-roed {
+  /* Brand: the site's existing primary / dark / light reds. */
+  --brand:      #8b1a2b;
+  --brand-2:    #a82040;
+  --brand-dark: #6b1420;
+  --brand-55:   rgba(139, 26, 43, 0.55);
+  --brand-72:   rgba(139, 26, 43, 0.72);
+
+  /* Tint: the blush that plays the part mint plays against green — pale enough
+     to take near-black button labels at full contrast. */
+  --tint:       #f5d3da;
+  --tint-2:     #ebbdc7;
+  --tint-glow:  rgba(245, 211, 218, 0.16);
+  --tint-ring:  rgba(245, 211, 218, 0.8);
+
+  /* Paper warmed a shade so the cream sits with red rather than against it. */
+  --paper:      #faf7f2;
+  --paper-2:    #f3efe7;
+
+  background: var(--paper);
+}

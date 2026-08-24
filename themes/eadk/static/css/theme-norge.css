@@ -1,0 +1,830 @@
+/* =============================================================================
+   VARIANT — "Norge"
+   Built from DESIGN.md, measured off effektivaltruisme.no. Warm off-white field,
+   deep forest green bands, mint on anything you can press. Inter at 600 for every
+   heading, set tight. The defining rule of the source system is negative: no
+   borders, no shadows, no card outlines — grouping is whitespace and colour only.
+
+   Structure differs from the other variants: the hero is a compact announcement
+   card rather than a full-viewport band, and the homepage explains before it
+   asks (what-is-EA is pulled above get-involved via flex order).
+   Every rule is scoped to body:is(.theme-norge, .theme-roed).
+   ========================================================================== */
+
+body:is(.theme-norge, .theme-roed) {
+  --paper:    #faf8f4;
+  --paper-2:  #f2efe8;
+  --ink:      #202022;
+  --ink-2:    rgba(32, 32, 34, 0.62);
+  --ink-3:    rgba(32, 32, 34, 0.45);
+  --hair:     rgba(32, 32, 34, 0.12);
+
+  --color-primary:      var(--brand);
+  --color-primary-dark: var(--brand-dark);
+  --color-primary-light:var(--tint);
+  --color-text:         var(--ink);
+  --color-text-light:   var(--ink-2);
+  --color-bg:           var(--paper);
+  --color-bg-alt:       var(--paper);
+  --color-bg-dark:      var(--brand);
+  --color-border:       var(--hair);
+  --color-accent:       var(--brand);
+
+  --font-sans:  'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-serif: 'Inter', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --header-height: 64px;
+  --max-width: 1200px;
+  --radius: 16px;
+
+  --hero-photo: url("../images/eagxnordics-2023.jpeg");
+  --hero-photo-pos: center 30%;
+
+  /* Type scale. rem resolves against the 16px ROOT, never against body — the
+     sizes below are therefore expressed against 16px, and each step sits
+     1.3-1.4x above the last, which is the separation a heading needs to read
+     as a level rather than as emphasis. Values follow the source's measured
+     scale. Fluid steps keep a rem term in the preferred value so browser zoom
+     still scales them; a bare vw there would pin them (WCAG 1.4.4). */
+  --t-xs:      0.875rem;  /* 14.0  micro-labels: tags */
+  --t-sm:      1rem;      /* 16.0  nav, captions, meta, small UI */
+  --t-base:    1.2rem;    /* 19.2  body copy, buttons, component titles */
+  --t-lead:    1.35rem;   /* 21.6  intros, page subtitles, pull quotes */
+  --t-h3:      1.62rem;   /* 25.9  subsection headings */
+  --t-h2:      clamp(1.75rem, 0.9vw + 1.4rem, 2.1rem);   /* -> 33.6 */
+  --t-h1:      clamp(1.9rem, 1.5vw + 1.35rem, 2.8rem);   /* -> 44.8 landmark */
+  --t-display: clamp(2.1rem, 2.6vw + 1.35rem, 3.8rem);   /* -> 60.8 page/hero */
+
+  font-family: var(--font-sans);
+  font-size: var(--t-base);
+  line-height: 1.5;
+  background: var(--paper);
+  color: var(--ink);
+  letter-spacing: 0;
+}
+
+/* ---- Palette: Norge — the source's forest green and mint ----------------- */
+body.theme-norge {
+  --brand:      #22352b;
+  --brand-2:    #2c4436;
+  --brand-dark: #17251d;
+  --brand-55:   rgba(34, 53, 43, 0.55);
+  --brand-72:   rgba(34, 53, 43, 0.72);
+  --tint:       #cef0dc;
+  --tint-2:     #bce7cd;
+  --tint-glow:  rgba(206, 240, 220, 0.14);
+  --tint-ring:  rgba(206, 240, 220, 0.7);
+}
+
+/* ---- Type: one family, one heading weight, tight ------------------------- */
+body:is(.theme-norge, .theme-roed) h1,
+body:is(.theme-norge, .theme-roed) h2,
+body:is(.theme-norge, .theme-roed) h3,
+body:is(.theme-norge, .theme-roed) h4,
+body:is(.theme-norge, .theme-roed) h5 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ink);
+  text-transform: none;
+}
+body:is(.theme-norge, .theme-roed) h1 { font-size: var(--t-display); }
+body:is(.theme-norge, .theme-roed) h2 { font-size: var(--t-h2); line-height: 1.11; }
+body:is(.theme-norge, .theme-roed) h3 { font-size: var(--t-h3); line-height: 1.17; }
+body:is(.theme-norge, .theme-roed) h4 { font-size: var(--t-base); line-height: 1.19; }
+body:is(.theme-norge, .theme-roed) a { color: var(--ink); }
+body:is(.theme-norge, .theme-roed) a:hover { color: var(--brand); }
+body:is(.theme-norge, .theme-roed) ::selection { background: var(--tint); color: var(--ink); }
+
+/* ---- Header: 61px, background-matched, no border, no blur ---------------- */
+body:is(.theme-norge, .theme-roed) .site-header {
+  background: var(--paper);
+  backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+body:is(.theme-norge, .theme-roed) .logo { color: var(--ink); }
+body:is(.theme-norge, .theme-roed) .logo-text {
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+body:is(.theme-norge, .theme-roed) .logo-text strong { font-weight: 600; }
+body:is(.theme-norge, .theme-roed) .nav-link,
+body:is(.theme-norge, .theme-roed) .nav-dropdown-toggle {
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+body:is(.theme-norge, .theme-roed) .nav-link:hover,
+body:is(.theme-norge, .theme-roed) .nav-dropdown-toggle:hover { background: transparent; color: var(--ink-2); }
+body:is(.theme-norge, .theme-roed) .nav-link--donate {
+  background: var(--tint);
+  color: var(--ink) !important;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-weight: 500;
+  margin-left: 0.75rem;
+}
+body:is(.theme-norge, .theme-roed) .nav-link--donate:hover { background: var(--tint-2); }
+body:is(.theme-norge, .theme-roed) .nav-dropdown-menu {
+  background: var(--paper);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 18px 44px -22px rgba(32, 32, 34, 0.4);
+  padding: 0.5rem;
+}
+body:is(.theme-norge, .theme-roed) .nav-dropdown-menu li a { border-radius: 8px; font-size: var(--t-sm); font-weight: 500; }
+body:is(.theme-norge, .theme-roed) .nav-dropdown-menu li a:hover { background: var(--paper-2); }
+body:is(.theme-norge, .theme-roed) .lang-toggle { border-left-color: var(--hair); }
+body:is(.theme-norge, .theme-roed) .lang-link { font-weight: 500; color: var(--ink-3); }
+body:is(.theme-norge, .theme-roed) .lang-link:hover { background: transparent; color: var(--ink); }
+body:is(.theme-norge, .theme-roed) .menu-toggle span { background: var(--ink); }
+
+/* ---- Buttons: tinted pills, generous padding, no uppercase --------------- */
+body:is(.theme-norge, .theme-roed) .btn {
+  border-radius: 20px;
+  border-width: 1.5px;
+  font-weight: 500;
+  font-size: var(--t-base);
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 0.85rem 1.6rem;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+}
+body:is(.theme-norge, .theme-roed) .btn--lg { padding: 1.1rem 2.2rem; font-size: var(--t-base); }
+body:is(.theme-norge, .theme-roed) .btn--primary {
+  background: var(--tint);
+  border-color: var(--tint);
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .btn--primary:hover {
+  background: var(--tint-2);
+  border-color: var(--tint-2);
+  color: var(--ink);
+  transform: none;
+  box-shadow: none;
+}
+body:is(.theme-norge, .theme-roed) .btn--secondary {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .btn--secondary:hover { background: var(--ink); color: var(--paper); }
+body:is(.theme-norge, .theme-roed) .btn--outline {
+  background: transparent;
+  border-color: rgba(250, 248, 244, 0.75);
+  color: var(--paper);
+}
+body:is(.theme-norge, .theme-roed) .btn--outline:hover { background: var(--paper); color: var(--brand); }
+
+/* ---- Homepage: explain before you ask ------------------------------------
+   The source site puts "what is EA" above "what you can do". Reordering with
+   flex keeps the markup — and the other variants — untouched. Sections on other
+   pages all stay at order 0 and so keep document order. */
+body:is(.theme-norge, .theme-roed) main { display: flex; flex-direction: column; }
+body:is(.theme-norge, .theme-roed) .hero           { order: 1; }
+body:is(.theme-norge, .theme-roed) .what-is-ea     { order: 2; }
+body:is(.theme-norge, .theme-roed) .get-involved   { order: 3; }
+body:is(.theme-norge, .theme-roed) .find-chapter   { order: 4; }
+body:is(.theme-norge, .theme-roed) .faq-section    { order: 5; }
+body:is(.theme-norge, .theme-roed) .media-coverage { order: 6; }
+
+/* ---- Hero as a compact announcement card -------------------------------- */
+body:is(.theme-norge, .theme-roed) .hero {
+  background: transparent;
+  min-height: 0;
+  padding: calc(var(--header-height) + 2.5rem) 1.5rem 0;
+  text-align: left;
+  align-items: stretch;
+  border: 0;
+  overflow: visible;
+}
+body:is(.theme-norge, .theme-roed) .hero::before { display: none; }
+body:is(.theme-norge, .theme-roed) .hero-overlay { display: none; }
+body:is(.theme-norge, .theme-roed) .hero-content {
+  position: relative;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  background: var(--brand);
+  border-radius: var(--radius);
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+/* The source pairs its announcement card with a photograph on the right. Done
+   as a background so no markup changes and no other variant inherits it. */
+body:is(.theme-norge, .theme-roed) .hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  background: var(--hero-photo) var(--hero-photo-pos) / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 42%);
+  opacity: 0.85;
+}
+/* A single soft light source, the one liberty taken with a flat system. */
+body:is(.theme-norge, .theme-roed) .hero-content::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(100deg, var(--brand) 26%, var(--brand-55) 52%, transparent 74%),
+    radial-gradient(70% 90% at 88% 12%, var(--tint-glow), transparent 62%);
+}
+body:is(.theme-norge, .theme-roed) .hero h1 {
+  position: relative;
+  z-index: 1;
+  color: var(--paper);
+  font-size: var(--t-display);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  max-width: 16ch;
+  margin-bottom: 1.25rem;
+}
+body:is(.theme-norge, .theme-roed) .hero-tagline {
+  position: relative;
+  z-index: 1;
+  color: rgba(250, 248, 244, 0.75);
+  font-size: var(--t-lead);
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 32rem;
+  margin: 0 0 2.25rem;
+}
+body:is(.theme-norge, .theme-roed) .hero-ctas {
+  position: relative;
+  z-index: 1;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+body:is(.theme-norge, .theme-roed) .hero h1,
+body:is(.theme-norge, .theme-roed) .hero-tagline,
+body:is(.theme-norge, .theme-roed) .hero-ctas {
+  animation: norge-in 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+body:is(.theme-norge, .theme-roed) .hero h1 { animation-delay: 0.05s; }
+body:is(.theme-norge, .theme-roed) .hero-tagline { animation-delay: 0.14s; }
+body:is(.theme-norge, .theme-roed) .hero-ctas { animation-delay: 0.23s; }
+
+@keyframes norge-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- Sections: one field, alignment does the work ------------------------ */
+body:is(.theme-norge, .theme-roed) .section { padding: 5.5rem 0; }
+body:is(.theme-norge, .theme-roed) .section--alt { background: var(--paper); }
+body:is(.theme-norge, .theme-roed) .section-label {
+  text-align: left;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink-2);
+  margin-bottom: 0.5rem;
+}
+body:is(.theme-norge, .theme-roed) .section-title {
+  text-align: left;
+  margin-left: 0;
+  max-width: 20ch;
+  font-size: var(--t-h1);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+body:is(.theme-norge, .theme-roed) .section-title--accent { color: var(--ink); }
+body:is(.theme-norge, .theme-roed) .section-intro {
+  text-align: left;
+  margin: 0.85rem 0 3rem;
+  max-width: 40rem;
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+/* The action grid is the one centred section, as on the source. */
+body:is(.theme-norge, .theme-roed) .get-involved .section-label,
+body:is(.theme-norge, .theme-roed) .get-involved .section-title,
+body:is(.theme-norge, .theme-roed) .get-involved .section-intro { text-align: center; }
+body:is(.theme-norge, .theme-roed) .get-involved .section-title { max-width: 22ch; margin-left: auto; margin-right: auto; }
+body:is(.theme-norge, .theme-roed) .get-involved .section-intro { margin-left: auto; margin-right: auto; }
+body:is(.theme-norge, .theme-roed) .media-coverage .container.text-center { text-align: left; }
+
+/* ---- Action grid: no card chrome at all --------------------------------- */
+body:is(.theme-norge, .theme-roed) .pathway-grid { gap: 2.5rem 2.5rem; }
+body:is(.theme-norge, .theme-roed) .pathway-card {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  gap: 0.85rem;
+}
+body:is(.theme-norge, .theme-roed) .pathway-card:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+body:is(.theme-norge, .theme-roed) .pathway-icon {
+  background: var(--tint-2);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: var(--brand);
+  transition: background 0.25s ease;
+}
+body:is(.theme-norge, .theme-roed) .pathway-card:hover .pathway-icon { background: var(--tint); }
+body:is(.theme-norge, .theme-roed) .pathway-icon svg { width: 26px; height: 26px; stroke-width: 1.6; }
+body:is(.theme-norge, .theme-roed) .pathway-card h3 { font-size: var(--t-base); font-weight: 600; letter-spacing: -0.02em; }
+body:is(.theme-norge, .theme-roed) .pathway-card p { font-size: var(--t-sm); line-height: 1.5; color: var(--ink-2); }
+body:is(.theme-norge, .theme-roed) .pathway-card:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Two column ---------------------------------------------------------- */
+body:is(.theme-norge, .theme-roed) .two-col { gap: 3.5rem; align-items: start; }
+body:is(.theme-norge, .theme-roed) .two-col__text p { color: var(--ink-2); line-height: 1.55; font-size: var(--t-base); max-width: 34rem; }
+body:is(.theme-norge, .theme-roed) .two-col__media h2 { margin-bottom: 1.25rem; }
+body:is(.theme-norge, .theme-roed) .video-embed,
+body:is(.theme-norge, .theme-roed) .calendar-embed,
+body:is(.theme-norge, .theme-roed) .two-col__media img {
+  border-radius: 0;
+  box-shadow: none;
+  border: 0;
+}
+
+/* ---- Local groups: plain columns ---------------------------------------- */
+body:is(.theme-norge, .theme-roed) .chapter-grid { gap: 2.5rem; }
+body:is(.theme-norge, .theme-roed) .find-chapter .chapter-card,
+body:is(.theme-norge, .theme-roed) .chapter-card {
+  background: transparent;
+  border: 0;
+  border-left: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  text-align: left;
+  gap: 0.6rem;
+}
+body:is(.theme-norge, .theme-roed) .find-chapter .chapter-card:hover,
+body:is(.theme-norge, .theme-roed) .chapter-card:hover { transform: none; box-shadow: none; background: transparent; }
+body:is(.theme-norge, .theme-roed) .chapter-card h3 { font-size: var(--t-h3); font-weight: 600; }
+body:is(.theme-norge, .theme-roed) .chapter-card p { color: var(--ink-2); font-size: var(--t-sm); }
+body:is(.theme-norge, .theme-roed) .chapter-card .btn { padding: 0.6rem 1.3rem; font-size: var(--t-sm); }
+
+/* ---- FAQ: hairline register, no boxes ----------------------------------- */
+body:is(.theme-norge, .theme-roed) .faq-section .container { max-width: 720px; }
+body:is(.theme-norge, .theme-roed) .faq-list { margin-top: 2rem; border-top: 1px solid var(--hair); }
+body:is(.theme-norge, .theme-roed) .faq-item {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--hair);
+}
+body:is(.theme-norge, .theme-roed) .faq-item[open] { background: transparent; box-shadow: none; }
+body:is(.theme-norge, .theme-roed) .faq-item summary {
+  font-size: var(--t-base);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding: 1.4rem 0;
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .faq-item summary:hover { color: var(--ink-2); }
+body:is(.theme-norge, .theme-roed) .faq-item summary::after { border-color: var(--ink-3); width: 9px; height: 9px; }
+body:is(.theme-norge, .theme-roed) .faq-answer { padding: 0 3rem 1.5rem 0; font-size: var(--t-base); line-height: 1.55; color: var(--ink-2); }
+body:is(.theme-norge, .theme-roed) .faq-answer a { color: var(--ink); text-decoration-color: var(--hair); }
+
+/* ---- Media coverage ------------------------------------------------------ */
+body:is(.theme-norge, .theme-roed) .media-logos { justify-content: flex-start; gap: 3rem; margin-top: 2rem; }
+body:is(.theme-norge, .theme-roed) .media-logo {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.25s ease;
+}
+body:is(.theme-norge, .theme-roed) .media-logo:hover { box-shadow: none; filter: grayscale(0) opacity(1); }
+
+/* ---- Newsletter: full-bleed brand band ---------------------------------- */
+body:is(.theme-norge, .theme-roed) .newsletter-section {
+  background: var(--brand);
+  color: var(--paper);
+  padding: 4.5rem 0;
+}
+body:is(.theme-norge, .theme-roed) .newsletter-text h2 {
+  color: var(--paper);
+  font-size: var(--t-h2);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+body:is(.theme-norge, .theme-roed) .newsletter-text p { color: rgba(250, 248, 244, 0.7); font-size: var(--t-sm); line-height: 1.55; max-width: 34rem; }
+body:is(.theme-norge, .theme-roed) .newsletter-form input {
+  background: var(--paper);
+  border: 0;
+  border-radius: 20px;
+  padding: 0.9rem 1.25rem;
+  color: var(--ink);
+  font-size: var(--t-sm);
+  font-family: var(--font-sans);
+}
+body:is(.theme-norge, .theme-roed) .newsletter-form input::placeholder { color: var(--ink-3); }
+body:is(.theme-norge, .theme-roed) .newsletter-form input:focus {
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--tint);
+}
+body:is(.theme-norge, .theme-roed) .newsletter-form .btn--primary { background: var(--tint); border-color: var(--tint); color: var(--ink); font-size: var(--t-sm); padding: 0.9rem 1.5rem; }
+
+/* ---- Footer -------------------------------------------------------------- */
+body:is(.theme-norge, .theme-roed) .site-footer {
+  background: var(--brand);
+  color: rgba(250, 248, 244, 0.72);
+  padding: 4rem 0 3rem;
+}
+body:is(.theme-norge, .theme-roed) .site-footer address { font-size: var(--t-sm); line-height: 1.7; color: rgba(250, 248, 244, 0.6); }
+body:is(.theme-norge, .theme-roed) .site-footer address a { color: rgba(250, 248, 244, 0.85); }
+body:is(.theme-norge, .theme-roed) .footer-links h3 {
+  color: var(--paper);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+body:is(.theme-norge, .theme-roed) .footer-links ul li { margin-bottom: 0.45rem; }
+body:is(.theme-norge, .theme-roed) .footer-links ul li a { color: rgba(250, 248, 244, 0.72); font-size: var(--t-sm); }
+body:is(.theme-norge, .theme-roed) .footer-links ul li a:hover { color: var(--tint); }
+body:is(.theme-norge, .theme-roed) .social-links a { background: rgba(250, 248, 244, 0.1); }
+body:is(.theme-norge, .theme-roed) .social-links a:hover { background: var(--tint); color: var(--brand); }
+
+/* ---- Interior page headers: no coloured band ---------------------------- */
+body:is(.theme-norge, .theme-roed) .page-header {
+  background: var(--paper);
+  color: var(--ink);
+  padding: calc(var(--header-height) + 4.5rem) 0 1rem;
+}
+body:is(.theme-norge, .theme-roed) .page-header h1 {
+  color: var(--ink);
+  font-size: var(--t-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.07;
+  max-width: 18ch;
+}
+body:is(.theme-norge, .theme-roed) .page-subtitle {
+  color: var(--ink-2);
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  max-width: 40rem;
+  margin-top: 0.85rem;
+}
+body:is(.theme-norge, .theme-roed) .page-hero,
+body:is(.theme-norge, .theme-roed) .chapter-hero {
+  background: var(--paper);
+  min-height: 0;
+  text-align: left;
+  justify-content: flex-start;
+  padding: calc(var(--header-height) + 4.5rem) 0 1rem;
+}
+body:is(.theme-norge, .theme-roed) .page-hero-content {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+body:is(.theme-norge, .theme-roed) .page-hero h1,
+body:is(.theme-norge, .theme-roed) .chapter-hero h1 {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+body:is(.theme-norge, .theme-roed) .page-hero-subtitle,
+body:is(.theme-norge, .theme-roed) .chapter-hero p { color: var(--ink-2); font-size: var(--t-lead); line-height: 1.5; max-width: 40rem; }
+body:is(.theme-norge, .theme-roed) .page-header h1,
+body:is(.theme-norge, .theme-roed) .page-subtitle { animation: norge-in 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+
+/* The page header's bottom padding and the first section's top padding were
+   stacking into a ~150px dead band under every page title. */
+body:is(.theme-norge, .theme-roed) .page-header + .section,
+body:is(.theme-norge, .theme-roed) .page-hero + .section,
+body:is(.theme-norge, .theme-roed) .chapter-hero + .section { padding-top: 2.75rem; }
+body:is(.theme-norge, .theme-roed) .content > *:first-child,
+body:is(.theme-norge, .theme-roed) .section > .container > *:first-child { margin-top: 0; }
+body:is(.theme-norge, .theme-roed) .page-subtitle { animation-delay: 0.1s; }
+
+/* ---- Long-form content --------------------------------------------------- */
+body:is(.theme-norge, .theme-roed) .content p,
+body:is(.theme-norge, .theme-roed) .content li { color: var(--ink); }
+/* The source holds prose to ~694px even inside a 1200px container. */
+body:is(.theme-norge, .theme-roed) .content > p,
+body:is(.theme-norge, .theme-roed) .content > ul,
+body:is(.theme-norge, .theme-roed) .content > ol,
+body:is(.theme-norge, .theme-roed) .content > h2,
+body:is(.theme-norge, .theme-roed) .content > h3,
+body:is(.theme-norge, .theme-roed) .content > h4 { max-width: 44rem; }
+body:is(.theme-norge, .theme-roed) .content a { color: var(--ink); text-decoration-color: rgba(32, 32, 34, 0.35); text-underline-offset: 3px; }
+body:is(.theme-norge, .theme-roed) .content a:hover { text-decoration-color: var(--ink); }
+body:is(.theme-norge, .theme-roed) .content blockquote {
+  border-left: 0;
+  padding-left: 0;
+  font-style: italic;
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  color: var(--ink);
+  max-width: 34rem;
+}
+body:is(.theme-norge, .theme-roed) .content--narrow h2,
+body:is(.theme-norge, .theme-roed) .content--narrow h3,
+body:is(.theme-norge, .theme-roed) .content--narrow .card-title,
+body:is(.theme-norge, .theme-roed) .content--narrow .value-card h3 {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+body:is(.theme-norge, .theme-roed) .content--narrow h2 { font-size: var(--t-h2); }
+body:is(.theme-norge, .theme-roed) .content--narrow h3 { font-size: var(--t-h3); }
+body:is(.theme-norge, .theme-roed) .content--narrow p,
+body:is(.theme-norge, .theme-roed) .content--narrow li {
+  font-size: var(--t-base);
+  line-height: 1.6;
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .content--narrow > h2::before { border-top-color: var(--hair); }
+
+/* ---- Cards, values, stats: chrome removed -------------------------------- */
+body:is(.theme-norge, .theme-roed) .card,
+body:is(.theme-norge, .theme-roed) .value-card,
+body:is(.theme-norge, .theme-roed) .content--narrow .card,
+body:is(.theme-norge, .theme-roed) .content--narrow .value-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+body:is(.theme-norge, .theme-roed) .card:hover,
+body:is(.theme-norge, .theme-roed) .value-card:hover { transform: none; box-shadow: none; background: transparent; }
+body:is(.theme-norge, .theme-roed) .card-body { padding: 0; }
+body:is(.theme-norge, .theme-roed) .content--narrow .card-body { padding: 0; }
+body:is(.theme-norge, .theme-roed) .card-grid { gap: 2.5rem; }
+body:is(.theme-norge, .theme-roed) .content--narrow .card-grid { gap: 2rem 2.5rem; }
+body:is(.theme-norge, .theme-roed) .card-tag {
+  background: var(--tint);
+  color: var(--brand);
+  border-radius: 999px;
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 0.2rem 0.7rem;
+}
+body:is(.theme-norge, .theme-roed) .card-title,
+body:is(.theme-norge, .theme-roed) .content--narrow .card-title { font-size: var(--t-base); font-weight: 600; }
+body:is(.theme-norge, .theme-roed) .card-title a { color: var(--ink); }
+body:is(.theme-norge, .theme-roed) .card-author { color: var(--ink-2); font-size: var(--t-sm); }
+body:is(.theme-norge, .theme-roed) .card-excerpt { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.55; }
+/* Icon glyphs have different ink widths, so centring them in the circle puts
+   their left edges in three different places while the text below is flush
+   left. The circle IS aligned; it just has to be visible enough for the eye to
+   use it as the edge instead of the stroke inside. Hence the deeper tint. */
+body:is(.theme-norge, .theme-roed) .value-icon { background: var(--tint-2); border-radius: 50%; color: var(--brand); }
+/* Components that style.css sizes on its own, brought onto the scale so no
+   page ends up with off-ladder body copy. */
+body:is(.theme-norge, .theme-roed) .value-card h3,
+body:is(.theme-norge, .theme-roed) .team-member h4,
+body:is(.theme-norge, .theme-roed) .team-member--horizontal .team-member-info h4,
+body:is(.theme-norge, .theme-roed) .author-bio-info h3 {
+  font-size: var(--t-base);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+body:is(.theme-norge, .theme-roed) .value-card p,
+body:is(.theme-norge, .theme-roed) .team-member p,
+body:is(.theme-norge, .theme-roed) .team-member--horizontal .team-member-info p,
+body:is(.theme-norge, .theme-roed) .author-bio-info p,
+body:is(.theme-norge, .theme-roed) .form-group label,
+body:is(.theme-norge, .theme-roed) .media-logo {
+  font-size: var(--t-sm);
+  line-height: 1.55;
+}
+
+body:is(.theme-norge, .theme-roed) .stat-card { text-align: left; padding: 0; }
+body:is(.theme-norge, .theme-roed) .stat-number {
+  font-family: var(--font-sans);
+  font-size: var(--t-h1);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--brand);
+  line-height: 1;
+}
+body:is(.theme-norge, .theme-roed) .stat-label { font-size: var(--t-sm); color: var(--ink-2); text-transform: none; letter-spacing: 0; }
+body:is(.theme-norge, .theme-roed) .author-bio { border-top-color: var(--hair); }
+body:is(.theme-norge, .theme-roed) .author-bio-info .author-title { color: var(--ink-2); text-transform: none; letter-spacing: 0; }
+body:is(.theme-norge, .theme-roed) .team-member-photo { background: var(--paper-2); border-color: var(--hair); }
+body:is(.theme-norge, .theme-roed) .form-group input,
+body:is(.theme-norge, .theme-roed) .form-group textarea {
+  border-radius: 12px;
+  border-color: var(--hair);
+  background: #fff;
+  font-family: var(--font-sans);
+}
+body:is(.theme-norge, .theme-roed) .form-group input:focus,
+body:is(.theme-norge, .theme-roed) .form-group textarea:focus {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--tint-ring);
+}
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  body:is(.theme-norge, .theme-roed) .hero { padding-top: calc(var(--header-height) + 1.5rem); }
+  body:is(.theme-norge, .theme-roed) .hero-content { min-height: 0; padding: 2rem 1.5rem 2.25rem; border-radius: 12px; }
+  body:is(.theme-norge, .theme-roed) .hero-content::before { width: 100%; opacity: 0.28; -webkit-mask-image: none; mask-image: none; }
+  body:is(.theme-norge, .theme-roed) .hero-content::after { background: linear-gradient(180deg, var(--brand-72), var(--brand) 72%); }
+  body:is(.theme-norge, .theme-roed) .hero-ctas .btn { width: 100%; justify-content: center; }
+  body:is(.theme-norge, .theme-roed) .section { padding: 3.5rem 0; }
+  body:is(.theme-norge, .theme-roed) .pathway-grid { gap: 2rem; }
+  body:is(.theme-norge, .theme-roed) .media-logos { gap: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:is(.theme-norge, .theme-roed) *,
+  body:is(.theme-norge, .theme-roed) *::before,
+  body:is(.theme-norge, .theme-roed) *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}
+
+/* =============================================================================
+   HERO VARIANTS
+   Three alternatives to the announcement card, from quiet to loud. Applied with
+   a body class (hero-a/b/c); no class keeps the current design. Structural
+   only, so both palettes get them.
+   ========================================================================== */
+
+/* ---- A. Quiet: no photograph, one flat field, type and air --------------- */
+body:is(.theme-norge, .theme-roed).hero-a .hero-content {
+  min-height: 0;
+  padding: clamp(2.75rem, 4.5vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+}
+body:is(.theme-norge, .theme-roed).hero-a .hero-content::before { display: none; }
+body:is(.theme-norge, .theme-roed).hero-a .hero-content::after { background: none; }
+body:is(.theme-norge, .theme-roed).hero-a .hero h1 {
+  max-width: 15ch;
+  font-size: clamp(1.9rem, 2vw + 1.2rem, 3rem);
+  margin-bottom: 1rem;
+}
+body:is(.theme-norge, .theme-roed).hero-a .hero-tagline {
+  font-size: var(--t-base);
+  max-width: 46ch;
+  margin-bottom: 1.75rem;
+}
+
+/* ---- B. Split: a hard 50/50 edge instead of a blend ---------------------- */
+body:is(.theme-norge, .theme-roed).hero-b .hero-content {
+  min-height: 480px;
+  /* Leaves ~620px of text column: enough for the two CTAs side by side in
+     Danish, whose labels run longer than the English ones. */
+  padding-right: 42%;
+}
+body:is(.theme-norge, .theme-roed).hero-b .hero-content::before {
+  width: 40%;
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: 1;
+}
+body:is(.theme-norge, .theme-roed).hero-b .hero-content::after { background: none; }
+/* The narrower column wants smaller CTAs: at the full body step the two Danish
+   labels no longer sit on one row. */
+body:is(.theme-norge, .theme-roed).hero-b .hero-ctas .btn {
+  font-size: var(--t-sm);
+  padding: 0.9rem 1.7rem;
+}
+
+/* ---- C. Full bleed: duotone photograph across the whole card ------------- */
+body:is(.theme-norge, .theme-roed).hero-c .hero-content {
+  min-height: 620px;
+  justify-content: flex-end;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+}
+body:is(.theme-norge, .theme-roed).hero-c .hero-content::before {
+  width: 100%;
+  /* Colour on top of the photo in `color` blend mode takes hue and saturation
+     from the brand and luminosity from the image — a true duotone. */
+  background:
+    linear-gradient(var(--brand), var(--brand)),
+    var(--hero-photo) var(--hero-photo-pos) / cover no-repeat;
+  background-blend-mode: color;
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: 1;
+}
+body:is(.theme-norge, .theme-roed).hero-c .hero-content::after {
+  background:
+    linear-gradient(0deg, var(--brand-72) 0%, var(--brand-55) 34%, transparent 78%),
+    radial-gradient(80% 60% at 20% 100%, var(--brand-55), transparent 70%);
+}
+body:is(.theme-norge, .theme-roed).hero-c .hero h1 {
+  font-size: clamp(2.4rem, 3.6vw + 1.2rem, 4.6rem);
+  line-height: 0.98;
+  max-width: 15ch;
+  margin-bottom: 1.1rem;
+}
+body:is(.theme-norge, .theme-roed).hero-c .hero-tagline {
+  font-size: var(--t-lead);
+  color: rgba(250, 248, 244, 0.88);
+  max-width: 38ch;
+  margin-bottom: 2.25rem;
+}
+
+@media (max-width: 860px) {
+  body:is(.theme-norge, .theme-roed).hero-b .hero-content { padding-right: clamp(2rem, 4vw, 3.5rem); padding-top: 58%; min-height: 0; }
+  body:is(.theme-norge, .theme-roed).hero-b .hero-content::before { width: 100%; height: 52%; bottom: auto; }
+  body:is(.theme-norge, .theme-roed).hero-c .hero-content { min-height: 480px; }
+}
+
+/* ---- Photo axis: swap the hero image without touching the layout ---------
+   Combines with any hero variant. "Quiet" shows no photo, so it is unaffected. */
+body:is(.theme-norge, .theme-roed).photo-cph {
+  --hero-photo: url("../images/copenhagen.jpg");
+  --hero-photo-pos: center 58%;
+}
+/* The panorama is 2.1:1; in the narrow right-hand crops of the blended and
+   split heroes it needs to sit lower still to keep city rather than sky. */
+body:is(.theme-norge, .theme-roed).photo-cph:not(.hero-c) { --hero-photo-pos: center 66%; }
+
+/* ---- Sign-off block ------------------------------------------------------
+   Same borderless logic as the rest: a brand field for the ask, a quiet tinted
+   panel for the details, and no uppercase letter-spaced labels anywhere. */
+
+body:is(.theme-norge, .theme-roed) .contact-social { font-size: var(--t-sm); }
+
+/* ---- Feature stats: bigger figures, no rules (grouping is whitespace) ---- */
+
+
+/* ---- About page: borderless, on the type scale --------------------------- */
+body:is(.theme-norge, .theme-roed) .about { --about-measure: 40rem; }
+body:is(.theme-norge, .theme-roed) .about__lead {
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .about__figures {
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  padding: 2.25rem 0;
+}
+body:is(.theme-norge, .theme-roed) .figure-number {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(2.5rem, 4.6vw, 3.4rem);
+  letter-spacing: -0.035em;
+  color: var(--brand);
+}
+body:is(.theme-norge, .theme-roed) .figure-label { font-size: var(--t-sm); color: var(--ink-2); }
+body:is(.theme-norge, .theme-roed) .about__photo img { border-radius: var(--radius); }
+body:is(.theme-norge, .theme-roed) .about__mission h2,
+body:is(.theme-norge, .theme-roed) .about__join h2 { font-size: var(--t-h2); }
+body:is(.theme-norge, .theme-roed) .about__mission li {
+  border-top: 1px solid var(--hair);
+  font-size: var(--t-base);
+  color: var(--ink-2);
+  line-height: 1.55;
+}
+body:is(.theme-norge, .theme-roed) .about__close { border-top: 1px solid var(--hair); }
+body:is(.theme-norge, .theme-roed) .about__contact h3 { font-size: var(--t-base); letter-spacing: -0.02em; }
+body:is(.theme-norge, .theme-roed) .about__contact p { font-size: var(--t-sm); }
+body:is(.theme-norge, .theme-roed).about-b .about__figures { border: 0; border-left: 1px solid var(--hair); }
+body:is(.theme-norge, .theme-roed).about-c .about__figures { border: 0; background: var(--paper-2); }
+
+/* ---- Closing line: on the scale, one step above body --------------------- */
+body:is(.theme-norge, .theme-roed) .content hr {
+  border-top-color: var(--hair);
+  margin: 5rem 0 0;
+}
+body:is(.theme-norge, .theme-roed) .content hr + p {
+  margin-top: 2.25rem;
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  color: var(--ink);
+}
+body:is(.theme-norge, .theme-roed) .content hr + p a {
+  font-weight: 600;
+  color: var(--brand);
+  text-decoration-color: var(--tint-2);
+}
+body:is(.theme-norge, .theme-roed) .content hr + p a:hover { text-decoration-color: var(--brand); }
+
+/* Nav switches to the burger at 900px, matching the base stylesheet. */
+@media (max-width: 940px) {
+  body:is(.theme-norge, .theme-roed) .main-nav { background: var(--paper); border-bottom-color: var(--hair); box-shadow: none; }
+  body:is(.theme-norge, .theme-roed) .nav-dropdown-menu { background: var(--paper-2); }
+}
