@@ -104,6 +104,10 @@ defaultContentLanguageInSubdir = false
       url = "https://giveffektivt.dk"
 
 [params]
+  # Design variants: theme = "norge" | "roed".
+  # themePicker shows a floating switcher for comparing them side by side.
+  # It only renders under `hugo server`; production builds never include it.
+  themePicker = true
   email = "contact@effectivealtruism.dk"
   address = "Vesterbrogade 149, Bygning 5"
   city = "1620 København"
