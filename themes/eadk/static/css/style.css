@@ -88,18 +88,7 @@ h4 { font-size: 1.125rem; }
   background: #fff;
   color: var(--color-primary);
 }
-.btn--outline-light {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255,255,255,0.5);
-  font-size: 0.875rem;
-  padding: 0.5rem 1.25rem;
-}
-.btn--outline-light:hover {
-  background: rgba(255,255,255,0.15);
-  border-color: #fff;
-  color: #fff;
-}
+
 .btn--lg { padding: 1rem 2rem; font-size: 1rem; }
 
 /* ===== Header ===== */
@@ -364,16 +353,7 @@ h4 { font-size: 1.125rem; }
 }
 
 /* Image placeholder */
-.image-placeholder {
-  background: var(--color-bg-alt);
-  border: 2px dashed var(--color-border);
-  border-radius: 12px;
-  aspect-ratio: 4/3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ccc;
-}
+
 
 /* ===== Media Coverage ===== */
 .media-logos {
@@ -582,7 +562,7 @@ h4 { font-size: 1.125rem; }
 .card-title { font-size: 1.25rem; margin-bottom: 0.5rem; }
 .card-title a { color: var(--color-text); text-decoration: none; }
 .card-title a:hover { color: var(--color-primary); }
-.card-date { font-size: 0.8125rem; color: var(--color-text-light); display: block; margin-bottom: 0.75rem; }
+
 .card-excerpt { color: var(--color-text-light); font-size: 0.9375rem; line-height: 1.7; }
 .card-author { font-size: 0.875rem; color: var(--color-text-light); }
 
@@ -704,17 +684,7 @@ h4 { font-size: 1.125rem; }
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
-.chapter-card-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(139, 26, 43, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.25rem;
-  font-size: 1.5rem;
-}
+
 .chapter-card h3 {
   font-family: var(--font-sans);
   font-weight: 600;
@@ -968,7 +938,9 @@ h4 { font-size: 1.125rem; }
 }
 
 /* ===== Responsive (Mobile) ===== */
-@media (max-width: 768px) {
+/* Navigation switches to the burger earlier than the rest of the layout: the
+   full nav is already cramped by ~900px, where labels start wrapping. */
+@media (max-width: 940px) {
   .menu-toggle { display: flex; }
   .main-nav {
     display: none;
@@ -997,6 +969,9 @@ h4 { font-size: 1.125rem; }
   .nav-link--donate { margin-left: 0; margin-top: 0.5rem; text-align: center; justify-content: center; }
   .lang-toggle { margin-left: 0; padding-left: 0; border-left: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--color-border); justify-content: center; }
 
+}
+
+@media (max-width: 768px) {
   .hero { min-height: 70vh; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
   .two-col--reverse .two-col__text { order: 0; }
@@ -1068,4 +1043,321 @@ h4 { font-size: 1.125rem; }
 @media (max-width: 800px) {
   .content--narrow .values-grid,
   .content--narrow .guidance-values { grid-template-columns: 1fr; }
+}
+/* ===== Sign-off block: membership CTA + contact panel =====================
+   Two panels closing a page. The CTA is a filled field, the contact panel a
+   quiet one, so the ask reads first and the details sit beside it rather than
+   under it. Used on the About page in place of a separate contact page. */
+
+.contact-social { margin-top: 1.25rem; font-size: 0.9375rem; }
+
+
+/* ===== Feature stats: the headline figures, given their own register =====
+   The plain .stats-grid is a supporting element; this variant is meant to be
+   the first thing on the page and is sized accordingly. */
+
+
+/* ===== About page ========================================================
+   One column, one rhythm. Layout variants are switched with a class on <body>
+   (about-b / about-c); the default below is the plain column. */
+.about {
+  --about-measure: 42rem;
+  display: grid;
+  /* The text track is exactly the measure, so every remaining pixel goes to the
+     photograph instead of sitting as dead space between the two. */
+  grid-template-columns: minmax(0, var(--about-measure)) minmax(0, 1fr);
+  column-gap: 3rem;
+  row-gap: 3.5rem;
+  align-items: start;
+}
+.about > * { max-width: none; }
+/* Explicit rows: the photograph shares row 3 with the mission text so it can
+   sit beside it and centre against it. Auto-placement would push them apart. */
+.about__lead    { grid-column: 1 / -1; grid-row: 1; max-width: var(--about-measure); }
+.about__figures { grid-column: 1 / -1; grid-row: 2; }
+.about__mission { grid-column: 1;      grid-row: 3; max-width: var(--about-measure); }
+.about__photo   { grid-column: 2;      grid-row: 3; align-self: center; }
+.about__close   { grid-column: 1 / -1; grid-row: 4; }
+.about__lead {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--color-text);
+  margin: 0;
+}
+.about__lead strong { font-weight: 600; }
+
+.about__figures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: none;
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.figure-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.figure-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--color-primary);
+  letter-spacing: -0.03em;
+}
+.figure-label {
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--color-text-light);
+  max-width: 24ch;
+}
+
+.about__photo { margin: 0; }
+.about__photo img { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+.about__mission { margin-bottom: 0; }
+.about__mission h2 { margin-bottom: 1.25rem; }
+.about__mission ul { list-style: none; padding: 0; }
+.about__mission li {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-light);
+  line-height: 1.65;
+}
+.about__mission li strong { color: var(--color-text); }
+
+.about__close {
+  max-width: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+/* Content is short next to the contact column; centring splits the leftover
+   height evenly instead of leaving it all beneath the button. */
+.about__join { align-self: center; }
+.about__join h2 { margin-bottom: 1.25rem; }
+.about__contact h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.about__contact p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+}
+.contact-key { font-weight: 600; color: var(--color-text); }
+.contact-cvr { color: var(--color-text-light); }
+.contact-social { margin-top: 1.25rem; }
+
+/* Stack well before the photo track gets squeezed. Two columns only pay off
+   while the photo still has ~360px: measure (640) + gap (48) + 360 needs about
+   1100px of viewport. Below that the photo drops BELOW the text — it precedes
+   the mission in source order, so the rows are restated to move it after. */
+@media (max-width: 1100px) {
+  .about { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; }
+  .about__lead    { grid-column: 1; grid-row: 1; }
+  .about__figures { grid-column: 1; grid-row: 2; }
+  .about__mission { grid-column: 1; grid-row: 3; }   /* keeps the measure cap */
+  .about__photo   { grid-column: 1; grid-row: 4; max-width: var(--about-measure); }
+  .about__close   { grid-column: 1; grid-row: 5; }
+}
+@media (max-width: 760px) {
+  .about__figures { grid-template-columns: 1fr; gap: 1.5rem; }
+  .about__close { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ---- B · Rail: secondary material moves into a right-hand column so the
+       reading column is never interrupted. ------------------------------- */
+body.about-b .about {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.85fr);
+  column-gap: 4rem;
+  align-items: start;
+}
+body.about-b .about > * { max-width: none; }
+body.about-b .about__photo   { align-self: start; }
+body.about-b .about__lead    { grid-column: 1; grid-row: 1; }
+body.about-b .about__photo   { grid-column: 1; grid-row: 2; }
+body.about-b .about__mission { grid-column: 1; grid-row: 3; }
+body.about-b .about__figures {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 0;
+  border-left: 1px solid var(--color-border);
+  padding: 0 0 0 2rem;
+  margin: 0.4rem 0 0;
+}
+body.about-b .about__close { grid-column: 1 / -1; grid-row: 4; }
+body.about-b .figure-number { font-size: clamp(2.25rem, 3.6vw, 2.85rem); }
+
+/* ---- C · Bands: the figures and the photograph go full width, the prose
+       stays in a centred measure. ---------------------------------------- */
+body.about-c .about { --about-measure: 40rem; display: block; }
+body.about-c .about__lead { margin-bottom: 3rem; }
+body.about-c .about__photo { margin: 0 0 3.5rem; }
+body.about-c .about__mission { margin-bottom: 3.5rem; }
+body.about-c .about > *:not(.about__figures):not(.about__photo) {
+  margin-left: auto;
+  margin-right: auto;
+}
+body.about-c .about__lead { text-align: center; }
+body.about-c .about__figures,
+body.about-c .about__photo {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  max-width: none;
+  border-radius: 0;
+}
+body.about-c .about__figures {
+  background: var(--color-bg-alt);
+  border: 0;
+  padding: 3.5rem 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 17rem));
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 0;
+}
+body.about-c .figure-item { text-align: center; align-items: center; }
+body.about-c .figure-label { max-width: 20ch; }
+body.about-c .about__photo { margin-bottom: 3.5rem; }
+body.about-c .about__photo img { border-radius: 0; max-height: 26rem; object-fit: cover; }
+body.about-c .about__close {
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  text-align: center;
+  max-width: var(--about-measure);
+}
+body.about-c .about__contact p { margin-left: auto; margin-right: auto; }
+@media (max-width: 900px) {
+  body.about-b .about { grid-template-columns: 1fr; }
+  body.about-b .about__figures {
+    grid-column: 1; grid-row: auto;
+    flex-direction: row; flex-wrap: wrap;
+    border-left: 0; border-top: 1px solid var(--color-border);
+    padding: 1.5rem 0 0;
+  }
+  body.about-c .about__figures { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+
+/* B refinement: the rail should carry the contact details too, otherwise it
+   runs out halfway down and the close block repeats the full-width pattern. */
+body.about-b .about__close { display: contents; }
+body.about-b .about__join {
+  grid-column: 1;
+  grid-row: 4;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+body.about-b .about__contact {
+  grid-column: 2;
+  grid-row: 4;
+  padding: 2.5rem 0 0 2rem;
+  border-left: 1px solid var(--color-border);
+}
+body.about-b .figure-label { max-width: none; }
+@media (max-width: 900px) {
+  body.about-b .about__close { display: grid; }
+  body.about-b .about__join,
+  body.about-b .about__contact {
+    grid-column: 1; grid-row: auto;
+    border-left: 0; padding-left: 0;
+  }
+  body.about-b .about__contact { border-top: 1px solid var(--color-border); }
+}
+
+/* ===== Closing line in long-form content ================================
+   A `---` before the final sentence renders as a bare <hr>, which the browser
+   gives ~8px margins and an inset 2px border — hence the cramped look. Give it
+   real air and treat the sentence after it as a sign-off rather than body copy. */
+.content hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: 4.5rem 0 0;
+}
+.content hr + p {
+  margin-top: 2.25rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+.content hr + p a {
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* ===== Join doodle ======================================================
+   A hand-drawn arrow and note filling the space beside the membership button.
+   Purely decorative, so it is aria-hidden in the markup and never carries
+   information the button does not already give. */
+.join-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;   /* wrapping would strand the arrow pointing at nothing */
+}
+.about__join .btn { flex: 0 0 auto; }
+.join-doodle {
+  /* Takes whatever the button leaves, so the pair always fills the row. */
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-primary);
+  opacity: 0.85;
+  pointer-events: none;
+  user-select: none;
+}
+.join-doodle svg {
+  /* Scales with the space available; the tip stays hard against the button. */
+  flex: 0 0 auto;
+  width: clamp(76px, 26%, 176px);
+  height: auto;
+  aspect-ratio: 112 / 80;
+  overflow: visible;
+}
+.join-doodle__note {
+  font-family: 'Caveat', 'Segoe Script', 'Bradley Hand', cursive;
+  font-size: clamp(1.2rem, 0.8vw + 0.95rem, 1.7rem);
+  line-height: 1.15;
+  font-weight: 600;
+  flex: 1 1 auto;
+  min-width: 0;
+  transform: rotate(-4deg);
+}
+/* The arrow draws itself once, the note fades in just behind it. */
+@media (prefers-reduced-motion: no-preference) {
+  .join-doodle svg .dl {
+    stroke-dasharray: 220;
+    stroke-dashoffset: 220;
+    animation: doodle-draw 0.9s 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  /* the sketchy second pass trails the main stroke, as if drawn over */
+  .join-doodle svg .dl--ghost { animation-delay: 0.62s; animation-duration: 0.7s; }
+  .join-doodle svg .dl:nth-of-type(3) { animation-delay: 1.15s; animation-duration: 0.28s; }
+  .join-doodle svg .dl:nth-of-type(4) { animation-delay: 1.28s; animation-duration: 0.28s; }
+  .join-doodle__note { opacity: 0; animation: doodle-note 0.5s 1.4s ease forwards; }
+}
+@keyframes doodle-draw { to { stroke-dashoffset: 0; } }
+@keyframes doodle-note {
+  from { opacity: 0; transform: rotate(-4deg) translateY(6px); }
+  to   { opacity: 1; transform: rotate(-4deg) translateY(0); }
+}
+/* Too tight to sit beside the button once the column narrows: drop the doodle
+   under it and swing the arrow round so it still points at the button. */
+@media (max-width: 760px) {
+  .join-row { flex-direction: column; align-items: flex-start; gap: 0.9rem; }
+  /* align-items: flex-start would shrink the doodle to its content and leave
+     the rest of the column empty; stretch keeps it filling the width. */
+  .join-doodle { align-self: stretch; padding-left: 2.25rem; gap: 0.75rem; }
+  .join-doodle svg { flex: 0 0 auto; width: 66px; transform: rotate(56deg); }
+  .join-doodle__note { flex: 1 1 auto; }
 }

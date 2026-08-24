@@ -1,0 +1,168 @@
+{{- if and .Site.Params.themePicker hugo.IsDevelopment }}
+<div class="variant-picker" role="group" aria-label="Design variant">
+  <span class="variant-picker__label">Design</span>
+  <button type="button" data-variant="">Original</button>
+  <button type="button" data-variant="norge">Norge</button>
+  <button type="button" data-variant="roed">Norge Rød</button>
+  <span class="variant-picker__sep"></span>
+  <span class="variant-picker__label variant-picker__label--hero">Hero</span>
+  <button type="button" data-hero="">Now</button>
+  <button type="button" data-hero="hero-a">Quiet</button>
+  <button type="button" data-hero="hero-b">Split</button>
+  <button type="button" data-hero="hero-c">Bleed</button>
+  <span class="variant-picker__sep"></span>
+  <span class="variant-picker__label variant-picker__label--hero">Photo</span>
+  <button type="button" data-photo="">Event</button>
+  <button type="button" data-photo="photo-cph">København</button>
+  <span class="variant-picker__sep variant-picker__sep--about"></span>
+  <span class="variant-picker__label variant-picker__label--about">About</span>
+  <button type="button" data-about="">Column</button>
+  <button type="button" data-about="about-b">Rail</button>
+  <button type="button" data-about="about-c">Bands</button>
+</div>
+
+<style>
+  .variant-picker {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 6px;
+    border-radius: 999px;
+    background: rgba(18, 18, 20, 0.86);
+    backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    font: 500 12px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    letter-spacing: 0.04em;
+  }
+  .variant-picker__label {
+    padding: 0 10px 0 8px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+  .variant-picker button {
+    appearance: none;
+    border: 0;
+    cursor: pointer;
+    padding: 8px 13px;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.66);
+    font: inherit;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .variant-picker button:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+  .variant-picker button[aria-pressed="true"] { background: #fff; color: #121214; }
+  .variant-picker__sep {
+    width: 1px;
+    align-self: stretch;
+    margin: 4px 6px;
+    background: rgba(255, 255, 255, 0.18);
+  }
+  /* The hero group only means anything for the Norge-family variants. */
+  .variant-picker:not([data-hero-visible]) .variant-picker__sep,
+  .variant-picker:not([data-hero-visible]) [data-hero],
+  .variant-picker:not([data-hero-visible]) [data-photo],
+  .variant-picker:not([data-hero-visible]) .variant-picker__label--hero { display: none; }
+  /* "Quiet" draws no photo, so the photo group has nothing to act on. */
+  .variant-picker[data-photo-muted] [data-photo] { opacity: 0.35; pointer-events: none; }
+  /* The About group only exists on pages that have the About layout. */
+  .variant-picker:not([data-about-visible]) .variant-picker__sep--about,
+  .variant-picker:not([data-about-visible]) [data-about],
+  .variant-picker:not([data-about-visible]) .variant-picker__label--about { display: none; }
+  @media (max-width: 640px) {
+    .variant-picker { bottom: 10px; padding: 4px; }
+    .variant-picker__label { display: none; }
+    .variant-picker button { padding: 7px 10px; font-size: 11px; }
+  }
+  @media print { .variant-picker { display: none; } }
+</style>
+
+<script>
+  (function () {
+    var picker = document.querySelector('.variant-picker');
+    if (!picker) return;
+    var keys = ['norge', 'roed'];
+
+    var heroes = ['hero-a', 'hero-b', 'hero-c'];
+
+    function applyHero(h) {
+      heroes.forEach(function (k) { document.body.classList.toggle(k, k === h); });
+      picker.querySelectorAll('[data-hero]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.hero === h));
+      });
+      if (h === 'hero-a') picker.setAttribute('data-photo-muted', '');
+      else picker.removeAttribute('data-photo-muted');
+      try { localStorage.setItem('eadk-hero', h); } catch (e) {}
+    }
+
+    function applyAbout(a) {
+      ['about-b', 'about-c'].forEach(function (k) { document.body.classList.toggle(k, k === a); });
+      picker.querySelectorAll('[data-about]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.about === a));
+      });
+      try { localStorage.setItem('eadk-about', a); } catch (e) {}
+    }
+
+
+    function applyPhoto(p) {
+      document.body.classList.toggle('photo-cph', p === 'photo-cph');
+      picker.querySelectorAll('[data-photo]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.photo === p));
+      });
+      try { localStorage.setItem('eadk-photo', p); } catch (e) {}
+    }
+
+    function apply(v) {
+      keys.forEach(function (k) { document.body.classList.toggle('theme-' + k, k === v); });
+      if (v === 'norge' || v === 'roed') picker.setAttribute('data-hero-visible', '');
+      else { picker.removeAttribute('data-hero-visible'); applyHero(''); applyPhoto(''); }
+      if (v) { document.documentElement.setAttribute('data-variant', v); }
+      else { document.documentElement.removeAttribute('data-variant'); }
+      picker.querySelectorAll('button').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.variant === v));
+      });
+      try { localStorage.setItem('eadk-variant', v); } catch (e) {}
+    }
+
+    picker.addEventListener('click', function (e) {
+      var b = e.target.closest('button');
+      if (!b) return;
+      if (b.hasAttribute('data-hero')) applyHero(b.dataset.hero);
+      else if (b.hasAttribute('data-photo')) applyPhoto(b.dataset.photo);
+      else if (b.hasAttribute('data-about')) applyAbout(b.dataset.about);
+      else apply(b.dataset.variant);
+    });
+
+    // 1-3 cycle through the variants.
+    document.addEventListener('keydown', function (e) {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (/^(input|textarea|select)$/i.test(e.target.tagName)) return;
+      var i = ['1', '2', '3'].indexOf(e.key);
+      if (i > -1) apply(['', 'norge', 'roed'][i]);
+    });
+
+    apply(document.documentElement.getAttribute('data-variant') || '');
+    var savedHero = '';
+    try { savedHero = localStorage.getItem('eadk-hero') || ''; } catch (e) {}
+    if (picker.hasAttribute('data-hero-visible')) {
+      applyHero(savedHero);
+      var savedPhoto = '';
+      try { savedPhoto = localStorage.getItem('eadk-photo') || ''; } catch (e) {}
+      applyPhoto(savedPhoto);
+    }
+    if (document.querySelector('.about')) {
+      picker.setAttribute('data-about-visible', '');
+      var savedAbout = '';
+      try { savedAbout = localStorage.getItem('eadk-about') || ''; } catch (e) {}
+      applyAbout(savedAbout);
+    }
+  })();
+</script>
+{{- end }}

@@ -7,10 +7,8 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/png">
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-  {{ with .Site.Params.theme }}<link rel="stylesheet" href="{{ printf "css/theme-%s.css" . | relURL }}">{{ end }}
+  {{ partial "theme-assets.html" . }}
   {{ block "head" . }}{{ end }}
 </head>
 <body class="{{ with .Params.bodyClass }}{{ . }}{{ end }} {{ with .Site.Params.theme }}theme-{{ . }}{{ end }}">
@@ -20,8 +18,10 @@
     {{ block "main" . }}{{ end }}
   </main>
 
-  {{ partial "newsletter.html" . }}
+  {{/* Pages that close with their own call to action opt out: newsletter: false */}}
+  {{ if ne .Params.newsletter false }}{{ partial "newsletter.html" . }}{{ end }}
   {{ partial "footer.html" . }}
+  {{ partial "theme-picker.html" . }}
 
   <script src="{{ "js/main.js" | relURL }}"></script>
 </body>

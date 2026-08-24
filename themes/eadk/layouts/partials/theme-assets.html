@@ -1,0 +1,81 @@
+{{/*
+  Design variants.
+  ----------------
+  Each variant is an overlay stylesheet in static/css/theme-<key>.css, scoped
+  entirely under `body.theme-<key>`, loaded after style.css. With no variant
+  selected the site renders exactly as it always has.
+
+  A variant may declare a base in $bases: its base stylesheet is loaded first,
+  so the variant file only has to carry what differs. "roed" is "norge" with a
+  different brand hue, and shares everything else with it.
+
+  Pick one permanently:   [params] theme = "roed"      in hugo.toml
+  Compare them live:      [params] themePicker = true  (floating switcher)
+*/}}
+
+{{- $fonts := dict
+  "default" "family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700"
+  "norge"   "family=Inter:wght@400;500;600;700"
+  "roed"    "family=Inter:wght@400;500;600;700"
+-}}
+{{- $bases := dict "roed" "norge" -}}
+{{- $keys := slice "norge" "roed" -}}
+
+{{- /* The switcher is a local review tool: never in a production build. */ -}}
+{{- $picker := and .Site.Params.themePicker hugo.IsDevelopment -}}
+{{- $active := .Site.Params.theme -}}
+
+{{- /* Which font sets does this build need? */ -}}
+{{- $need := slice "default" -}}
+{{- if $picker -}}
+  {{- $need = $keys | append "default" -}}
+{{- else if $active -}}
+  {{- $need = slice $active -}}
+{{- end -}}
+
+{{- /* De-duplicate: norge and roed share one font request. */ -}}
+{{- $seen := slice -}}
+{{- range $need }}
+  {{- $url := index $fonts . -}}
+  {{- if and $url (not (in $seen $url)) }}
+    {{- $seen = $seen | append $url }}
+<link href="https://fonts.googleapis.com/css2?{{ $url | safeURL }}&display=swap" rel="stylesheet">
+  {{- end }}
+{{- end }}
+
+{{- if .Params.doodle }}
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+{{- end }}
+
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+
+{{- /* Stylesheets, each preceded by its base if it declares one. */ -}}
+{{- $load := slice -}}
+{{- if $picker -}}
+  {{- $load = $keys -}}
+{{- else if $active -}}
+  {{- $load = slice $active -}}
+{{- end -}}
+{{- $emitted := slice -}}
+{{- range $load }}
+  {{- $chain := slice . -}}
+  {{- with index $bases . }}{{ $chain = slice . | append $chain }}{{ end -}}
+  {{- range $chain }}
+    {{- if not (in $emitted .) }}
+      {{- $emitted = $emitted | append . }}
+<link rel="stylesheet" href="{{ printf "css/theme-%s.css" . | relURL }}">
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- if $picker }}
+<script>
+  // Apply the remembered variant before first paint so there is no flash.
+  (function () {
+    try {
+      var t = localStorage.getItem('eadk-variant');
+      if (t) document.documentElement.setAttribute('data-variant', t);
+    } catch (e) {}
+  })();
+</script>
+{{- end }}
