@@ -1,5 +1,5 @@
 ---
-title: "Effective Altruism Aalborg"
+title: "EA Aalborg"
 subtitle: "Effective altruism in Aalborg and North Jutland"
 description: "Monthly reading groups for effective altruists in Aalborg and North Jutland."
 icon: "AAL"
