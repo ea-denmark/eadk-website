@@ -9,17 +9,18 @@
   so the variant file only has to carry what differs. "roed" is "norge" with a
   different brand hue, and shares everything else with it.
 
-  Pick one permanently:   [params] theme = "roed"      in hugo.toml
+  Pick one permanently:   [params] theme = "klar"      in hugo.toml
   Compare them live:      [params] themePicker = true  (floating switcher)
 */}}
 
 {{- $fonts := dict
   "default" "family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;600;700"
+  "klar"    "family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700"
   "norge"   "family=Inter:wght@400;500;600;700"
   "roed"    "family=Inter:wght@400;500;600;700"
 -}}
 {{- $bases := dict "roed" "norge" -}}
-{{- $keys := slice "norge" "roed" -}}
+{{- $keys := slice "klar" "norge" "roed" -}}
 
 {{- /* The switcher is a local review tool: never in a production build. */ -}}
 {{- $picker := and .Site.Params.themePicker hugo.IsDevelopment -}}

@@ -2,6 +2,7 @@
 <div class="variant-picker" role="group" aria-label="Design variant">
   <span class="variant-picker__label">Design</span>
   <button type="button" data-variant="">Original</button>
+  <button type="button" data-variant="klar">Klar</button>
   <button type="button" data-variant="norge">Norge</button>
   <button type="button" data-variant="roed">Norge Rød</button>
   <span class="variant-picker__sep"></span>
@@ -14,6 +15,10 @@
   <span class="variant-picker__label variant-picker__label--hero">Photo</span>
   <button type="button" data-photo="">Event</button>
   <button type="button" data-photo="photo-cph">København</button>
+  <span class="variant-picker__sep variant-picker__sep--accent"></span>
+  <span class="variant-picker__label variant-picker__label--accent">Accent</span>
+  <button type="button" data-accent="">Dannebrog</button>
+  <button type="button" data-accent="accent-ox">Oxblood</button>
   <span class="variant-picker__sep variant-picker__sep--about"></span>
   <span class="variant-picker__label variant-picker__label--about">About</span>
   <button type="button" data-about="">Column</button>
@@ -72,6 +77,10 @@
   .variant-picker:not([data-hero-visible]) .variant-picker__label--hero { display: none; }
   /* "Quiet" draws no photo, so the photo group has nothing to act on. */
   .variant-picker[data-photo-muted] [data-photo] { opacity: 0.35; pointer-events: none; }
+  /* The accent group only applies to Klar. */
+  .variant-picker:not([data-accent-visible]) .variant-picker__sep--accent,
+  .variant-picker:not([data-accent-visible]) [data-accent],
+  .variant-picker:not([data-accent-visible]) .variant-picker__label--accent { display: none; }
   /* The About group only exists on pages that have the About layout. */
   .variant-picker:not([data-about-visible]) .variant-picker__sep--about,
   .variant-picker:not([data-about-visible]) [data-about],
@@ -88,7 +97,7 @@
   (function () {
     var picker = document.querySelector('.variant-picker');
     if (!picker) return;
-    var keys = ['norge', 'roed'];
+    var keys = ['klar', 'norge', 'roed'];
 
     var heroes = ['hero-a', 'hero-b', 'hero-c'];
 
@@ -110,6 +119,13 @@
       try { localStorage.setItem('eadk-about', a); } catch (e) {}
     }
 
+    function applyAccent(a) {
+      document.body.classList.toggle('accent-ox', a === 'accent-ox');
+      picker.querySelectorAll('[data-accent]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.accent === a));
+      });
+      try { localStorage.setItem('eadk-accent', a); } catch (e) {}
+    }
 
     function applyPhoto(p) {
       document.body.classList.toggle('photo-cph', p === 'photo-cph');
@@ -123,6 +139,8 @@
       keys.forEach(function (k) { document.body.classList.toggle('theme-' + k, k === v); });
       if (v === 'norge' || v === 'roed') picker.setAttribute('data-hero-visible', '');
       else { picker.removeAttribute('data-hero-visible'); applyHero(''); applyPhoto(''); }
+      if (v === 'klar') picker.setAttribute('data-accent-visible', '');
+      else { picker.removeAttribute('data-accent-visible'); applyAccent(''); }
       if (v) { document.documentElement.setAttribute('data-variant', v); }
       else { document.documentElement.removeAttribute('data-variant'); }
       picker.querySelectorAll('button').forEach(function (b) {
@@ -136,16 +154,17 @@
       if (!b) return;
       if (b.hasAttribute('data-hero')) applyHero(b.dataset.hero);
       else if (b.hasAttribute('data-photo')) applyPhoto(b.dataset.photo);
+      else if (b.hasAttribute('data-accent')) applyAccent(b.dataset.accent);
       else if (b.hasAttribute('data-about')) applyAbout(b.dataset.about);
       else apply(b.dataset.variant);
     });
 
-    // 1-3 cycle through the variants.
+    // 1–5 cycle through the variants.
     document.addEventListener('keydown', function (e) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (/^(input|textarea|select)$/i.test(e.target.tagName)) return;
-      var i = ['1', '2', '3'].indexOf(e.key);
-      if (i > -1) apply(['', 'norge', 'roed'][i]);
+      var i = ['1', '2', '3', '4'].indexOf(e.key);
+      if (i > -1) apply(['', 'klar', 'norge', 'roed'][i]);
     });
 
     apply(document.documentElement.getAttribute('data-variant') || '');
@@ -162,6 +181,11 @@
       var savedAbout = '';
       try { savedAbout = localStorage.getItem('eadk-about') || ''; } catch (e) {}
       applyAbout(savedAbout);
+    }
+    if (picker.hasAttribute('data-accent-visible')) {
+      var savedAccent = '';
+      try { savedAccent = localStorage.getItem('eadk-accent') || ''; } catch (e) {}
+      applyAccent(savedAccent);
     }
   })();
 </script>

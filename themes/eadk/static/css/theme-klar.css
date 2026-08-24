@@ -1,0 +1,630 @@
+/* =============================================================================
+   VARIANT — "Klar"
+   International typographic style, Danish flag red. One grotesque in several
+   weights, a visible grid, hard rules, zero rounded corners and zero shadows.
+   Everything is flush left and everything sits on the baseline it was given.
+   Every rule is scoped to body.theme-klar.
+   ========================================================================== */
+
+body.theme-klar {
+  --paper:  #ffffff;
+  --paper-2:#f0efec;
+  --black:  #0a0a0a;
+  --grey:   #5c5c5c;
+  --grey-2: #9a9a9a;
+  --rule:   #0a0a0a;
+  --hair:   rgba(10, 10, 10, 0.16);
+  --red:    #e4002b;
+  --red-2:  #b30022;
+
+  --color-primary:      var(--red);
+  --color-primary-dark: var(--red-2);
+  --color-primary-light:var(--red);
+  --color-text:         var(--black);
+  --color-text-light:   var(--grey);
+  --color-bg:           var(--paper);
+  --color-bg-alt:       var(--paper-2);
+  --color-bg-dark:      var(--black);
+  --color-border:       var(--hair);
+  --color-accent:       var(--red);
+
+  --font-sans:  'Familjen Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Familjen Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --header-height: 72px;
+  --max-width: 1400px;
+
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.55;
+  background: var(--paper);
+  color: var(--black);
+  font-feature-settings: 'ss01' 1;
+}
+
+/* ---- Type ---------------------------------------------------------------- */
+body.theme-klar h1,
+body.theme-klar h2,
+body.theme-klar h3,
+body.theme-klar h4,
+body.theme-klar h5 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  color: var(--black);
+}
+body.theme-klar h1 { font-size: clamp(2.5rem, 6.5vw, 4.5rem); }
+body.theme-klar h2 { font-size: clamp(1.9rem, 4.2vw, 2.75rem); }
+body.theme-klar h3 { font-size: clamp(1.15rem, 2vw, 1.375rem); letter-spacing: -0.02em; }
+body.theme-klar a { color: var(--black); text-decoration-color: var(--red); }
+body.theme-klar a:hover { color: var(--red); }
+body.theme-klar ::selection { background: var(--red); color: #fff; }
+
+/* ---- Header -------------------------------------------------------------- */
+body.theme-klar .site-header {
+  background: var(--paper);
+  backdrop-filter: none;
+  border-bottom: 2px solid var(--rule);
+}
+body.theme-klar .logo-text {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+body.theme-klar .logo-text strong { font-weight: 700; color: var(--red); }
+body.theme-klar .nav-link,
+body.theme-klar .nav-dropdown-toggle {
+  border-radius: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  padding: 0.4rem 0.75rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.18s linear, color 0.18s linear;
+}
+body.theme-klar .nav-link:hover,
+body.theme-klar .nav-dropdown-toggle:hover {
+  background: none;
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+body.theme-klar .nav-link--donate {
+  background: var(--red);
+  color: #fff !important;
+  border-radius: 0;
+  border-bottom-color: var(--red);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+}
+body.theme-klar .nav-link--donate:hover { background: var(--black); border-bottom-color: var(--black); }
+body.theme-klar .nav-dropdown-menu {
+  background: var(--paper);
+  border: 2px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+body.theme-klar .nav-dropdown-menu li a {
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  padding: 0.75rem 1.25rem;
+}
+body.theme-klar .nav-dropdown-menu li + li a { border-top: 1px solid var(--hair); }
+body.theme-klar .nav-dropdown-menu li a:hover { background: var(--red); color: #fff; }
+body.theme-klar .lang-toggle { border-left: 2px solid var(--rule); }
+body.theme-klar .lang-link {
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--grey);
+}
+body.theme-klar .lang-link:hover { background: var(--black); color: #fff; }
+body.theme-klar .menu-toggle span { background: var(--black); height: 3px; }
+
+/* ---- Buttons ------------------------------------------------------------- */
+body.theme-klar .btn {
+  border-radius: 0;
+  border-width: 2px;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  z-index: 0;
+}
+/* Fill wipes in from the left rather than fading. */
+body.theme-klar .btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+body.theme-klar .btn:hover::before { transform: scaleX(1); }
+body.theme-klar .btn--lg { padding: 1.15rem 2.25rem; font-size: 0.875rem; }
+body.theme-klar .btn--primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+body.theme-klar .btn--primary:hover {
+  background: var(--red);
+  border-color: var(--black);
+  color: #fff;
+  transform: none;
+  box-shadow: none;
+}
+body.theme-klar .btn--secondary {
+  background: transparent;
+  border-color: var(--black);
+  color: var(--black);
+}
+body.theme-klar .btn--secondary:hover { background: transparent; color: #fff; }
+body.theme-klar .btn--outline { border-color: var(--black); color: var(--black); background: transparent; }
+body.theme-klar .btn--outline:hover { background: transparent; color: #fff; }
+
+/* ---- Hero: type as the whole poster ------------------------------------- */
+body.theme-klar .hero {
+  background: var(--paper);
+  min-height: 90vh;
+  text-align: left;
+  align-items: flex-end;
+  padding: calc(var(--header-height) + 4rem) 1.5rem 3.5rem;
+  border-bottom: 2px solid var(--rule);
+}
+/* The grid the layout is set on, made visible. */
+body.theme-klar .hero::before {
+  background:
+    repeating-linear-gradient(to right, var(--hair) 0 1px, transparent 1px calc(100% / 12));
+  background-size: 100% 100%;
+  opacity: 0.32;
+  inset: 0 0 0 0;
+}
+body.theme-klar .hero-overlay { display: none; }
+body.theme-klar .hero { padding-left: 0; padding-right: 0; }
+body.theme-klar .hero-content { max-width: var(--max-width); width: 100%; margin: 0 auto; padding: 0 1.5rem; }
+body.theme-klar .hero h1 {
+  color: var(--black);
+  font-size: clamp(3rem, 11vw, 9rem);
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  max-width: 14ch;
+  margin-bottom: 2rem;
+}
+/* Word-by-word reveal via a clipped wrapper is impossible without markup, so
+   the whole line rises out of a mask instead. */
+body.theme-klar .hero h1 {
+  animation: klar-mask 1s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+}
+body.theme-klar .hero-tagline {
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--black);
+  max-width: 34ch;
+  margin: 0 0 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--red);
+  animation: klar-fade 0.7s 0.45s ease both;
+}
+body.theme-klar .hero-ctas { justify-content: flex-start; animation: klar-fade 0.7s 0.6s ease both; }
+
+@keyframes klar-mask {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(0.15em); }
+  to   { opacity: 1; clip-path: inset(0 0 -20% 0); transform: none; }
+}
+@keyframes klar-fade {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- Sections ------------------------------------------------------------ */
+body.theme-klar .section { padding: 5.5rem 0; }
+body.theme-klar .section--alt { background: var(--paper-2); border-bottom: 2px solid var(--rule); }
+body.theme-klar .section-label {
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--rule);
+}
+body.theme-klar .section-title {
+  text-align: left;
+  margin-left: 0;
+  max-width: 16ch;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+body.theme-klar .section-title--accent { color: var(--black); }
+body.theme-klar .section-intro {
+  text-align: left;
+  margin: 1.5rem 0 3rem;
+  max-width: 48ch;
+  font-size: 1.0625rem;
+  color: var(--grey);
+  line-height: 1.55;
+}
+body.theme-klar .media-coverage .container.text-center { text-align: left; }
+
+/* ---- Pathway cards: grid cells ------------------------------------------ */
+body.theme-klar .pathway-grid { gap: 0; border-top: 2px solid var(--rule); }
+body.theme-klar .pathway-card {
+  background: var(--paper);
+  border-radius: 0;
+  box-shadow: none;
+  border-right: 1px solid var(--hair);
+  padding: 2rem 1.75rem 2.75rem;
+  gap: 1rem;
+  transition: background 0.25s linear, color 0.25s linear;
+}
+body.theme-klar .pathway-grid > .pathway-card:last-child { border-right: 0; }
+body.theme-klar .pathway-card:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--red);
+  color: #fff;
+}
+body.theme-klar .pathway-card:hover h3,
+body.theme-klar .pathway-card:hover p { color: #fff; }
+body.theme-klar .pathway-icon {
+  background: none;
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
+  justify-content: flex-start;
+  color: var(--red);
+  transition: color 0.25s linear;
+}
+body.theme-klar .pathway-card:hover .pathway-icon { color: #fff; }
+body.theme-klar .pathway-icon svg { width: 40px; height: 40px; stroke-width: 1.5; }
+body.theme-klar .pathway-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+body.theme-klar .pathway-card p { font-size: 0.9375rem; color: var(--grey); line-height: 1.5; }
+
+/* ---- Two column / media -------------------------------------------------- */
+body.theme-klar .two-col { gap: 4rem; align-items: start; }
+body.theme-klar .two-col h2 {
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 0.94;
+}
+body.theme-klar .two-col__text p { color: var(--grey); line-height: 1.6; }
+body.theme-klar .video-embed,
+body.theme-klar .calendar-embed,
+body.theme-klar .two-col__media img {
+  border-radius: 0;
+  box-shadow: none;
+  border: 2px solid var(--rule);
+}
+
+/* ---- FAQ ----------------------------------------------------------------- */
+body.theme-klar .faq-section .container { max-width: 900px; }
+body.theme-klar .faq-list { border-top: 2px solid var(--rule); margin-top: 2rem; }
+body.theme-klar .faq-item {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--hair);
+}
+body.theme-klar .faq-item[open] { box-shadow: none; }
+body.theme-klar .faq-item summary {
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  padding: 1.35rem 0;
+}
+body.theme-klar .faq-item summary::after {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  transform: none;
+  background:
+    linear-gradient(var(--black), var(--black)) center/100% 2px no-repeat,
+    linear-gradient(var(--black), var(--black)) center/2px 100% no-repeat;
+  transition: transform 0.28s linear, background-size 0.28s linear;
+}
+body.theme-klar .faq-item[open] summary::after { background-size: 100% 2px, 0 100%; }
+body.theme-klar .faq-item summary:hover { color: var(--red); }
+body.theme-klar .faq-answer { padding: 0 3rem 1.5rem 0; color: var(--grey); font-size: 1rem; }
+
+/* ---- Media coverage ------------------------------------------------------ */
+body.theme-klar .media-logos { justify-content: flex-start; gap: 0; border-top: 2px solid var(--rule); }
+body.theme-klar .media-logo {
+  border: 0;
+  border-right: 1px solid var(--hair);
+  border-radius: 0;
+  padding: 2.25rem 3rem;
+  filter: grayscale(1);
+  transition: filter 0.2s linear, background 0.2s linear;
+}
+body.theme-klar .media-logos > .media-logo:last-child { border-right: 0; }
+body.theme-klar .media-logo:hover { box-shadow: none; filter: none; background: var(--paper-2); }
+
+/* ---- Newsletter: a red field -------------------------------------------- */
+body.theme-klar .newsletter-section {
+  background: var(--red);
+  color: #fff;
+  padding: 4.5rem 0;
+  border-bottom: 2px solid var(--black);
+}
+body.theme-klar .newsletter-text h2 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 0.95;
+}
+body.theme-klar .newsletter-text p { color: rgba(255, 255, 255, 0.85); }
+body.theme-klar .newsletter-form input {
+  border-radius: 0;
+  background: #fff;
+  border: 2px solid #fff;
+  color: var(--black);
+  font-weight: 500;
+}
+body.theme-klar .newsletter-form input::placeholder { color: var(--grey-2); }
+body.theme-klar .newsletter-form input:focus { background: #fff; border-color: var(--black); }
+body.theme-klar .newsletter-form .btn--primary {
+  background: var(--black);
+  border-color: var(--black);
+  color: #fff;
+}
+body.theme-klar .newsletter-form .btn--primary::before { background: #fff; }
+body.theme-klar .newsletter-form .btn--primary:hover { color: var(--black); border-color: var(--black); }
+
+/* ---- Footer -------------------------------------------------------------- */
+body.theme-klar .site-footer { background: var(--black); color: rgba(255, 255, 255, 0.75); }
+body.theme-klar .footer-links h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+}
+body.theme-klar .footer-links ul li a { color: rgba(255, 255, 255, 0.7); }
+body.theme-klar .footer-links ul li a:hover { color: var(--red); }
+body.theme-klar .site-footer address a:hover { color: var(--red); }
+body.theme-klar .social-links a { border-radius: 0; background: rgba(255, 255, 255, 0.1); }
+body.theme-klar .social-links a:hover { background: var(--red); }
+
+/* ---- Page headers: black field ------------------------------------------ */
+body.theme-klar .page-header,
+body.theme-klar .page-hero,
+body.theme-klar .chapter-hero {
+  background: var(--black);
+  color: #fff;
+  border-bottom: 2px solid var(--rule);
+  text-align: left;
+  justify-content: flex-start;
+}
+body.theme-klar .page-header { padding: calc(var(--header-height) + 4.5rem) 0 3rem; }
+body.theme-klar .page-hero { padding-left: 0; padding-right: 0; }
+body.theme-klar .page-hero-content { max-width: var(--max-width); width: 100%; margin: 0 auto; padding: 0 1.5rem; }
+body.theme-klar .page-header h1,
+body.theme-klar .page-hero h1,
+body.theme-klar .chapter-hero h1 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.045em;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 0.9;
+  max-width: 16ch;
+  animation: klar-mask 0.9s cubic-bezier(0.16, 0.84, 0.28, 1) both;
+}
+body.theme-klar .page-subtitle,
+body.theme-klar .page-hero-subtitle,
+body.theme-klar .chapter-hero p {
+  color: #fff;
+  font-weight: 500;
+  max-width: 46ch;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--red);
+  animation: klar-fade 0.6s 0.35s ease both;
+}
+
+/* ---- Long-form content --------------------------------------------------- */
+body.theme-klar .content p,
+body.theme-klar .content li { color: var(--grey); }
+body.theme-klar .content a {
+  color: var(--black);
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+body.theme-klar .content a:hover { color: var(--red); }
+body.theme-klar .content blockquote {
+  border-left: 4px solid var(--red);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+body.theme-klar .content--narrow h2 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.035em;
+  color: var(--black);
+  line-height: 1;
+}
+body.theme-klar .content--narrow h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--black);
+}
+body.theme-klar .content--narrow p,
+body.theme-klar .content--narrow li { font-size: 1.0625rem; line-height: 1.6; color: var(--grey); }
+body.theme-klar .content--narrow > h2::before { border-top: 2px solid var(--rule); }
+
+/* ---- Cards, values, stats ------------------------------------------------ */
+body.theme-klar .card,
+body.theme-klar .value-card,
+body.theme-klar .chapter-card,
+body.theme-klar .content--narrow .card,
+body.theme-klar .content--narrow .value-card {
+  background: var(--paper);
+  border: 0;
+  border-top: 2px solid var(--rule);
+  border-radius: 0;
+  transition: background 0.2s linear;
+}
+body.theme-klar .card:hover,
+body.theme-klar .value-card:hover,
+body.theme-klar .chapter-card:hover {
+  transform: none;
+  box-shadow: none;
+  background: var(--paper-2);
+}
+body.theme-klar .card-body { padding: 1.5rem 1.25rem 1.75rem 0; }
+body.theme-klar .card-tag {
+  background: var(--black);
+  color: #fff;
+  border-radius: 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+}
+body.theme-klar .card-title { font-weight: 700; letter-spacing: -0.025em; }
+body.theme-klar .card-author { color: var(--grey-2); font-size: 0.8125rem; }
+body.theme-klar .value-icon { background: none; border-radius: 0; color: var(--red); }
+body.theme-klar .stat-card { text-align: left; padding: 1.75rem 0; border-top: 2px solid var(--rule); }
+body.theme-klar .stat-number {
+  font-size: clamp(3.25rem, 7vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  color: var(--red);
+  line-height: 0.85;
+  margin-bottom: 0.75rem;
+}
+body.theme-klar .stat-label {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--black);
+}
+body.theme-klar .author-bio { border-top: 2px solid var(--rule); }
+body.theme-klar .author-bio-photo,
+body.theme-klar .team-member-photo,
+body.theme-klar .team-member-photo img { border-radius: 0; }
+body.theme-klar .author-bio-info .author-title {
+  color: var(--red);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+body.theme-klar .form-group input,
+body.theme-klar .form-group textarea {
+  border-radius: 0;
+  border: 2px solid var(--rule);
+}
+body.theme-klar .form-group input:focus,
+body.theme-klar .form-group textarea:focus { border-color: var(--red); box-shadow: none; }
+
+/* ---- Responsive ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+  body.theme-klar .pathway-grid > .pathway-card:nth-child(2n) { border-right: 0; }
+  body.theme-klar .pathway-grid > .pathway-card:nth-child(n + 3) { border-top: 1px solid var(--hair); }
+}
+@media (max-width: 768px) {
+  body.theme-klar .hero { min-height: 80vh; }
+  body.theme-klar .hero::before { background: repeating-linear-gradient(to right, var(--hair) 0 1px, transparent 1px calc(100% / 6)); }
+  body.theme-klar .section { padding: 3.5rem 0; }
+  body.theme-klar .pathway-card { border-right: 0; border-top: 1px solid var(--hair); }
+  body.theme-klar .media-logo { padding: 1.5rem 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-klar *,
+  body.theme-klar *::before,
+  body.theme-klar *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}
+
+/* =============================================================================
+   ACCENT SWAP
+   Klar's red is Dannebrog #e4002b. This substitutes EA Denmark's own oxblood,
+   the same red Norge Rød uses. Every red in this file goes through var(--red),
+   so the two declarations below are the whole change.
+   ========================================================================== */
+body.theme-klar.accent-ox {
+  --red:   #8b1a2b;
+  --red-2: #6b1420;
+}
+
+/* ---- Sign-off block: two fields divided by a rule, no boxes -------------- */
+
+body.theme-klar .contact-social a { text-decoration: underline; text-decoration-color: var(--red); }
+
+/* The theme's global heading, paragraph and button colours all outrank the
+   base sign-off rules, so the red field needs them restated. */
+
+
+/* ---- Feature stats: figures as the poster element ------------------------ */
+
+
+/* ---- About page --------------------------------------------------------- */
+body.theme-klar .about__lead { font-weight: 500; letter-spacing: -0.015em; color: var(--black); }
+body.theme-klar .about__figures { border-top: 2px solid var(--rule); border-bottom: 2px solid var(--rule); }
+body.theme-klar .figure-number {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  color: var(--red);
+}
+body.theme-klar .figure-label {
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--black);
+}
+body.theme-klar .about__photo img { border-radius: 0; border: 2px solid var(--rule); }
+body.theme-klar .about__mission h2,
+body.theme-klar .about__join h2 { text-transform: uppercase; letter-spacing: -0.04em; }
+body.theme-klar .about__mission li { border-top: 1px solid var(--hair); }
+body.theme-klar .about__close { border-top: 2px solid var(--rule); }
+body.theme-klar .about__contact h3 { text-transform: uppercase; letter-spacing: 0.04em; }
+body.theme-klar .contact-key { color: var(--red); }
+body.theme-klar.about-b .about__figures { border: 0; border-left: 2px solid var(--rule); }
+body.theme-klar.about-c .about__figures { border: 0; background: var(--paper-2); }
+
+/* ---- Closing line ------------------------------------------------------- */
+body.theme-klar .content hr { border-top: 2px solid var(--rule); margin: 4.5rem 0 0; }
+body.theme-klar .content hr + p { margin-top: 2rem; font-weight: 500; letter-spacing: -0.015em; }
+body.theme-klar .content hr + p a { text-decoration-color: var(--red); }
+
+/* Nav switches to the burger at 900px, matching the base stylesheet. */
+@media (max-width: 940px) {
+  body.theme-klar .main-nav { background: var(--paper); border-bottom: 2px solid var(--rule); box-shadow: none; }
+  body.theme-klar .nav-dropdown-menu { background: var(--paper-2); border: 0; border-radius: 0; }
+}
