@@ -18,7 +18,8 @@
     {{ block "main" . }}{{ end }}
   </main>
 
-  {{ partial "newsletter.html" . }}
+  {{/* Pages that close with their own call to action opt out: newsletter: false */}}
+  {{ if ne .Params.newsletter false }}{{ partial "newsletter.html" . }}{{ end }}
   {{ partial "footer.html" . }}
   {{ partial "theme-picker.html" . }}
 
