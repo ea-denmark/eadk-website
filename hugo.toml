@@ -19,21 +19,6 @@ defaultContentLanguageInSubdir = false
       weight = 1
       url = "/introduction/"
     [[languages.en.menu.main]]
-      name = "Take Action"
-      weight = 2
-      identifier = "take-action"
-      url = "#"
-    [[languages.en.menu.main]]
-      name = "Become a Member"
-      parent = "take-action"
-      url = "/become-a-member/"
-      weight = 1
-    [[languages.en.menu.main]]
-      name = "Career Guidance"
-      parent = "take-action"
-      url = "/guidance/"
-      weight = 2
-    [[languages.en.menu.main]]
       name = "Events"
       weight = 3
       url = "/events/"
@@ -45,10 +30,6 @@ defaultContentLanguageInSubdir = false
       name = "About Us"
       weight = 5
       url = "/about/"
-    [[languages.en.menu.main]]
-      name = "Contact"
-      weight = 6
-      url = "/contact/"
     [[languages.en.menu.main]]
       name = "Donate"
       weight = 7
@@ -68,21 +49,6 @@ defaultContentLanguageInSubdir = false
       weight = 1
       url = "/da/introduktion/"
     [[languages.da.menu.main]]
-      name = "Kom i Gang"
-      weight = 2
-      identifier = "take-action"
-      url = "#"
-    [[languages.da.menu.main]]
-      name = "Bliv Medlem"
-      parent = "take-action"
-      url = "/da/bliv-medlem/"
-      weight = 1
-    [[languages.da.menu.main]]
-      name = "Karrierevejledning"
-      parent = "take-action"
-      url = "/da/vejledning/"
-      weight = 2
-    [[languages.da.menu.main]]
       name = "Arrangementer"
       weight = 3
       url = "/da/arrangementer/"
@@ -94,10 +60,6 @@ defaultContentLanguageInSubdir = false
       name = "Om Os"
       weight = 5
       url = "/da/om-os/"
-    [[languages.da.menu.main]]
-      name = "Kontakt"
-      weight = 6
-      url = "/da/kontakt/"
     [[languages.da.menu.main]]
       name = "Donér"
       weight = 7
