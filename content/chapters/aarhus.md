@@ -5,5 +5,4 @@ icon: "AAR"
 weight: 2
 ---
 
-<!-- TODO: Replace with Aarhus chapter Google Calendar ID -->
-{{< gcal src="YOUR_AAR_CALENDAR_ID@group.calendar.google.com" >}}
+This page is under construction. Find the newest information about events in Aarhus on our [Facebook page](https://www.facebook.com/groups/eaaarhus). 

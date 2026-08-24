@@ -1,0 +1,12 @@
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" -}}
+{{- $author := .Get "author" -}}
+<div class="card">
+  <div class="video-embed">
+    <iframe src="https://www.youtube.com/embed/{{ $id }}" title="{{ $title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{ $title }}</h4>
+    {{- with $author }}<p class="card-author">{{ . }}</p>{{ end }}
+  </div>
+</div>

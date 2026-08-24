@@ -1,0 +1,122 @@
+[siteNameFirst]
+other = "Effective Altruism"
+
+[siteNameLast]
+other = "Denmark"
+
+[subscribe]
+other = "Subscribe"
+
+[newsletterTitle]
+other = "Join Our Newsletter"
+
+[newsletterDesc]
+other = "We produce a monthly newsletter which updates followers on community news, events, and job listings."
+
+[firstNamePlaceholder]
+other = "First Name"
+
+[emailPlaceholder]
+other = "Email Address"
+
+[otherLinks]
+other = "Other links"
+
+[learnMore]
+other = "Learn More"
+
+[moreInfo]
+other = "More Information"
+
+[getCareerGuidance]
+other = "Get Career Guidance"
+
+[attendEvent]
+other = "Attend an Event"
+
+[takeAction]
+other = "Take Action"
+
+[getInvolved]
+other = "Get Involved"
+
+[getInvolvedIntro]
+other = "There are many ways to start making a difference today"
+
+[attendEventTitle]
+other = "Attend an Event"
+
+[attendEventDesc]
+other = "Meet like-minded people at socials, talks, and workshops across Denmark."
+
+[joinSlack]
+other = "Join the Slack"
+
+[joinSlackDesc]
+other = "Chat with the Danish EA community, ask questions, and stay in the loop."
+
+[getCareerAdvice]
+other = "Get Career Guidance"
+
+[getCareerAdviceDesc]
+other = "Book a free one-on-one chat about how to have more impact with your career."
+
+[startDonating]
+other = "Start Donating Effectively"
+
+[startDonatingDesc]
+other = "Give where it matters most through our partner, Giv Effektivt."
+
+[whatIsEA]
+other = "What is effective altruism?"
+
+[whatIsEADesc1]
+other = "Many of us aspire to make a meaningful impact in the world. Witnessing suffering, injustice, and death prompts us to want to take action. Yet, finding a tangible solution to these issues, and more importantly, implementing it, is not straightforward."
+
+[whatIsEADesc2]
+other = "Effective altruism offers a solution to this challenge. It is a research field dedicated to maximizing the impact of our efforts to aid others. By employing rigorous evidence and thoughtful reasoning, effective altruism seeks to address the question of how we can help others most effectively."
+
+[community]
+other = "Community"
+
+[findChapter]
+other = "Find Your Local Chapter"
+
+[findChapterIntro]
+other = "Connect with effective altruists in your city"
+
+[learnMoreLabel]
+other = "Learn More"
+
+[faqLabel]
+other = "Frequently Asked Questions"
+
+[faqWhatIsEA]
+other = "What is effective altruism?"
+
+[faqWhatIsEAAnswer]
+other = "Effective altruism is a research field and community dedicated to finding the best ways to help others. It uses evidence and careful reasoning to determine the most effective ways to improve the world. This means not just asking \"How can I make a difference?\" but \"How can I make the <em>biggest</em> difference?\""
+
+[faqGetInvolved]
+other = "How can I get involved?"
+
+[faqGetInvolvedAnswer]
+other = "There are many ways to get started! You could attend one of our events, join an introductory reading group, book a free career chat, or start by visiting <a href=\"https://giveffektivt.dk\">Giv Effektivt</a> to learn about high-impact giving. We welcome people at every stage of their EA journey."
+
+[faqDonate]
+other = "Where should I donate?"
+
+[faqDonateAnswer]
+other = "We recommend donating through <a href=\"https://giveffektivt.dk\">Giv Effektivt</a>, our Danish sister organization. They follow research from GiveWell and other evaluators to recommend charities that save the most lives per krone donated. You also get Danish tax deductions."
+
+[faqOnlyMoney]
+other = "Is EA just about donating money?"
+
+[faqOnlyMoneyAnswer]
+other = "Not at all! While effective giving is one important part, EA also encompasses career choice, volunteering, research, and community building. Many people find that choosing the right career is one of the highest-impact decisions they can make. Our career guidance service can help you think through your options."
+
+[mediaCoverage]
+other = "Media Coverage"
+
+[chaptersIntro]
+other = "Effective Altruism Denmark has active local groups across the country. Find your local community and get involved in events, discussions, and projects near you."

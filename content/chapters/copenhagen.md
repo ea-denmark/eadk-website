@@ -5,5 +5,4 @@ icon: "CPH"
 weight: 1
 ---
 
-<!-- TODO: Replace with Copenhagen chapter Google Calendar ID -->
-{{< gcal src="YOUR_CPH_CALENDAR_ID@group.calendar.google.com" >}}
+This page is under construction. Find the newest information about events in Copenhagen on our [Meetup page](https://www.meetup.com/effective-altruism-denmark/). 

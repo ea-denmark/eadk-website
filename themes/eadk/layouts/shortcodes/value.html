@@ -1,0 +1,4 @@
+<div class="value-card">
+  {{- with .Get "title" }}<h3>{{ . }}</h3>{{ end }}
+  {{ .Inner | markdownify }}
+</div>

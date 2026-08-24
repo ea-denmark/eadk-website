@@ -1,14 +1,19 @@
 {{ define "main" }}
 
+{{/* Look pages up by content path so links follow each language's own slug */}}
+{{ $guidance := .Site.GetPage "/guidance" }}
+{{ $events := .Site.GetPage "/events" }}
+{{ $introduction := .Site.GetPage "/introduction" }}
+
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Effective Altruism Denmark</h1>
+    <h1>{{ .Site.Title }}</h1>
     <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
     <div class="hero-ctas">
-      <a href="/guidance/" class="btn btn--primary btn--lg">Get Career Guidance</a>
-      <a href="/events/" class="btn btn--outline btn--lg">Attend an Event</a>
+      <a href="{{ $guidance.RelPermalink }}" class="btn btn--primary btn--lg">{{ i18n "getCareerGuidance" }}</a>
+      <a href="{{ $events.RelPermalink }}" class="btn btn--outline btn--lg">{{ i18n "attendEvent" }}</a>
     </div>
   </div>
 </section>
@@ -16,12 +21,12 @@
 <!-- Get Involved -->
 <section class="section get-involved">
   <div class="container">
-    <p class="section-label">Take Action</p>
-    <h2 class="section-title">Get Involved</h2>
-    <p class="section-intro">There are many ways to start making a difference today</p>
+    <p class="section-label">{{ i18n "takeAction" }}</p>
+    <h2 class="section-title">{{ i18n "getInvolved" }}</h2>
+    <p class="section-intro">{{ i18n "getInvolvedIntro" }}</p>
 
     <div class="pathway-grid">
-      <a href="/events/" class="pathway-card">
+      <a href="{{ $events.RelPermalink }}" class="pathway-card">
         <div class="pathway-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
             <rect x="6" y="10" width="36" height="32" rx="4"/>
@@ -30,11 +35,11 @@
             <circle cx="24" cy="30" r="4" fill="currentColor" stroke="none"/>
           </svg>
         </div>
-        <h3>Attend an Event</h3>
-        <p>Meet like-minded people at socials, talks, and workshops across Denmark.</p>
+        <h3>{{ i18n "attendEventTitle" }}</h3>
+        <p>{{ i18n "attendEventDesc" }}</p>
       </a>
 
-      <a href="{{ .Site.Params.slackInviteURL }}" class="pathway-card">
+      <a href="{{ .Site.Params.slackInviteURL }}" class="pathway-card" target="_blank" rel="noopener">
         <div class="pathway-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="48" height="48">
             <path d="M8 10h32a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H20l-8 8v-8H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/>
@@ -42,11 +47,11 @@
             <path d="M16 26h10"/>
           </svg>
         </div>
-        <h3>Join the Slack</h3>
-        <p>Chat with the Danish EA community, ask questions, and stay in the loop.</p>
+        <h3>{{ i18n "joinSlack" }}</h3>
+        <p>{{ i18n "joinSlackDesc" }}</p>
       </a>
 
-      <a href="{{ .Site.Params.bookChatURL }}" class="pathway-card">
+      <a href="{{ $guidance.RelPermalink }}" class="pathway-card">
         <div class="pathway-icon">
           <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" width="48" height="48">
             <rect x="8" y="14" width="32" height="24" rx="3"/>
@@ -55,8 +60,8 @@
             <path d="M24 29v4"/>
           </svg>
         </div>
-        <h3>Get Career Advice</h3>
-        <p>Book a free one-on-one chat about how to have more impact with your career.</p>
+        <h3>{{ i18n "getCareerAdvice" }}</h3>
+        <p>{{ i18n "getCareerAdviceDesc" }}</p>
       </a>
 
       <a href="{{ .Site.Params.donateURL }}" class="pathway-card" target="_blank" rel="noopener">
@@ -65,8 +70,8 @@
             <path d="M24 42S6 30 6 18a9 9 0 0 1 18 0 9 9 0 0 1 18 0c0 12-18 24-18 24z"/>
           </svg>
         </div>
-        <h3>Start Donating Effectively</h3>
-        <p>Give where it matters most through our partner, Giv Effektivt.</p>
+        <h3>{{ i18n "startDonating" }}</h3>
+        <p>{{ i18n "startDonatingDesc" }}</p>
       </a>
     </div>
   </div>
@@ -77,15 +82,15 @@
   <div class="container">
     <div class="two-col">
       <div class="two-col__media">
-        <h2>What is effective altruism?</h2>
+        <h2>{{ i18n "whatIsEA" }}</h2>
         <div class="video-embed">
           <iframe src="https://www.youtube.com/embed/WyprXhvGVYk" title="What are the most important moral problems of our time? | Will MacAskill" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
       <div class="two-col__text">
-        <p>Many of us aspire to make a meaningful impact in the world. Witnessing suffering, injustice, and death prompts us to want to take action. Yet, finding a tangible solution to these issues, and more importantly, implementing it, is not straightforward.</p>
-        <p>Effective altruism offers a solution to this challenge. It is a research field dedicated to maximizing the impact of our efforts to aid others. By employing rigorous evidence and thoughtful reasoning, effective altruism seeks to address the question of how we can help others most effectively.</p>
-        <a href="/introduction/" class="btn btn--secondary">More Information</a>
+        <p>{{ i18n "whatIsEADesc1" }}</p>
+        <p>{{ i18n "whatIsEADesc2" }}</p>
+        <a href="{{ $introduction.RelPermalink }}" class="btn btn--secondary">{{ i18n "moreInfo" }}</a>
       </div>
     </div>
   </div>
@@ -95,16 +100,16 @@
 {{ if false }}
 <section class="section find-chapter">
   <div class="container">
-    <p class="section-label">Community</p>
-    <h2 class="section-title">Find Your Local Chapter</h2>
-    <p class="section-intro">Connect with effective altruists in your city</p>
+    <p class="section-label">{{ i18n "community" }}</p>
+    <h2 class="section-title">{{ i18n "findChapter" }}</h2>
+    <p class="section-intro">{{ i18n "findChapterIntro" }}</p>
 
     <div class="chapter-grid">
       {{ range (where .Site.RegularPages "Section" "chapters") }}
       <div class="chapter-card">
         <h3>{{ .Title }}</h3>
         <p>{{ .Params.description }}</p>
-        <a href="{{ .RelPermalink }}" class="btn btn--secondary">Learn More</a>
+        <a href="{{ .RelPermalink }}" class="btn btn--secondary">{{ i18n "learnMore" }}</a>
       </div>
       {{ end }}
     </div>
@@ -115,35 +120,35 @@
 <!-- FAQ Section -->
 <section class="section section--alt faq-section">
   <div class="container">
-    <p class="section-label">Learn More</p>
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <p class="section-label">{{ i18n "learnMoreLabel" }}</p>
+    <h2 class="section-title">{{ i18n "faqLabel" }}</h2>
 
     <div class="faq-list">
       <details class="faq-item">
-        <summary>What is effective altruism?</summary>
+        <summary>{{ i18n "faqWhatIsEA" }}</summary>
         <div class="faq-answer">
-          <p>Effective altruism is a research field and community dedicated to finding the best ways to help others. It uses evidence and careful reasoning to determine the most effective ways to improve the world. This means not just asking "How can I make a difference?" but "How can I make the <em>biggest</em> difference?"</p>
+          <p>{{ i18n "faqWhatIsEAAnswer" | safeHTML }}</p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>How can I get involved?</summary>
+        <summary>{{ i18n "faqGetInvolved" }}</summary>
         <div class="faq-answer">
-          <p>There are many ways to get started! You could attend one of our events, join an introductory reading group, book a free career chat, or start by visiting <a href="{{ .Site.Params.donateURL }}">Giv Effektivt</a> to learn about high-impact giving. We welcome people at every stage of their EA journey.</p>
+          <p>{{ i18n "faqGetInvolvedAnswer" | safeHTML }}</p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>Where should I donate?</summary>
+        <summary>{{ i18n "faqDonate" }}</summary>
         <div class="faq-answer">
-          <p>We recommend donating through <a href="{{ .Site.Params.donateURL }}">Giv Effektivt</a>, our Danish sister organization. They follow research from GiveWell and other evaluators to recommend charities that save the most lives per krone donated. You also get Danish tax deductions.</p>
+          <p>{{ i18n "faqDonateAnswer" | safeHTML }}</p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>Is EA just about donating money?</summary>
+        <summary>{{ i18n "faqOnlyMoney" }}</summary>
         <div class="faq-answer">
-          <p>Not at all! While effective giving is one important part, EA also encompasses career choice, volunteering, research, and community building. Many people find that choosing the right career is one of the highest-impact decisions they can make. Our career guidance service can help you think through your options.</p>
+          <p>{{ i18n "faqOnlyMoneyAnswer" | safeHTML }}</p>
         </div>
       </details>
     </div>
@@ -153,7 +158,7 @@
 <!-- Media Coverage -->
 <section class="section media-coverage">
   <div class="container text-center">
-    <h2 class="section-title section-title--accent">Media Coverage</h2>
+    <h2 class="section-title section-title--accent">{{ i18n "mediaCoverage" }}</h2>
     <div class="media-logos">
       <a href="https://videnskab.dk/kultur-samfund/du-kan-vaere-en-superhelt-og-redde-flere-liv-end-du-maaske-tror/" target="_blank" rel="noopener" class="media-logo"><img src="/images/videnskab.png" alt="Videnskab.dk" loading="lazy"></a>
       <a href="https://www.kristeligt-dagblad.dk/liv-og-sjael/et-liv-eller-tre-der-er-stor-forskel-paa-hvor-langt-bidrag-til-velgoerenhed-raekker" target="_blank" rel="noopener" class="media-logo"><img src="/images/kristeligt-dagblad.webp" alt="Kristeligt Dagblad" loading="lazy"></a>

@@ -181,6 +181,28 @@ h4 { font-size: 1.125rem; }
 }
 .nav-link--donate:hover { background: var(--color-primary-dark); }
 
+/* Language Toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--color-border);
+}
+.lang-link {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+.lang-link:hover {
+  color: var(--color-primary);
+  background: rgba(139, 26, 43, 0.06);
+}
+
 .nav-dropdown { position: relative; }
 .nav-dropdown-menu {
   display: none;
@@ -973,6 +995,7 @@ h4 { font-size: 1.125rem; }
   .nav-dropdown:focus-within .nav-dropdown-menu { display: none; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
   .nav-link--donate { margin-left: 0; margin-top: 0.5rem; text-align: center; justify-content: center; }
+  .lang-toggle { margin-left: 0; padding-left: 0; border-left: none; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--color-border); justify-content: center; }
 
   .hero { min-height: 70vh; }
   .two-col { grid-template-columns: 1fr; gap: 2rem; }
@@ -984,4 +1007,65 @@ h4 { font-size: 1.125rem; }
   .chapter-grid { grid-template-columns: repeat(2, 1fr); }
   .faq-item summary { padding: 16px 20px; font-size: 0.95rem; }
   .faq-answer { padding: 0 20px 16px; font-size: 0.9rem; }
+}
+
+/* =========================================================================
+   LAYOUT FIXES — each block is self-contained and can be deleted on its own.
+   All rules are scoped to `.content--narrow`, opted into per page with
+   `narrow: true` in front matter, so nothing else on the site is affected.
+   ========================================================================= */
+
+/* --- FIX 2: readable measure on long-form pages.
+       Prose is capped at ~68 characters; grids and media keep the wider
+       column so cards do not become cramped. --- */
+.content--narrow { max-width: 1040px; }
+.content--narrow > p,
+.content--narrow > ul,
+.content--narrow > ol,
+.content--narrow > blockquote { max-width: 68ch; }
+.content--narrow .card-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.content--narrow .values-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.content--narrow .guidance-values { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+.content--narrow .stats-grid { gap: 1.5rem; margin: 2rem 0; }
+/* --- end FIX 2 --- */
+
+/* --- FIX 3: stop resource cards stretching to the tallest sibling, which left
+       dead space under short ones. Concept cards (values / guidance) keep equal
+       heights on purpose, since they are read as parallel items. --- */
+.card-grid { align-items: start; }
+/* --- end FIX 3 --- */
+
+/* --- FIX 4: lighter card chrome. Heavy 1px borders around thin, image-less
+       resource cards read as empty boxes; a soft tint groups them instead. --- */
+.content--narrow .card {
+  border: none;
+  background: var(--color-bg-alt);
+  box-shadow: none;
+}
+.content--narrow .card-body { padding: 1.25rem 1.5rem; }
+.content--narrow .card-title { font-size: 1.0625rem; line-height: 1.35; }
+.content--narrow .card-excerpt { font-size: 0.9rem; }
+.content--narrow .value-card {
+  border: none;
+  background: var(--color-bg-alt);
+  padding: 1.75rem;
+}
+.content--narrow .value-card:hover { transform: none; box-shadow: none; }
+.content--narrow .value-card p { max-width: none; }
+/* --- end FIX 4 --- */
+
+/* --- FIX 5: section rhythm. Long pages need clear breaks between top-level
+       sections; a hairline rule plus generous space does it. --- */
+.content--narrow h2 {
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+.content--narrow > h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.content--narrow h3 { margin-top: 2.75rem; }
+/* --- end FIX 5 --- */
+
+@media (max-width: 800px) {
+  .content--narrow .values-grid,
+  .content--narrow .guidance-values { grid-template-columns: 1fr; }
 }

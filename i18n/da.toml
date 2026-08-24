@@ -1,0 +1,122 @@
+[siteNameFirst]
+other = "Effektiv Altruisme"
+
+[siteNameLast]
+other = "Danmark"
+
+[subscribe]
+other = "Tilmeld"
+
+[newsletterTitle]
+other = "Modtag vores nyhedsbrev"
+
+[newsletterDesc]
+other = "Vi udsender et månedligt nyhedsbrev med nyheder om fællesskabet, arrangementer og jobopslag."
+
+[firstNamePlaceholder]
+other = "Fornavn"
+
+[emailPlaceholder]
+other = "E-mailadresse"
+
+[otherLinks]
+other = "Andre links"
+
+[learnMore]
+other = "Læs Mere"
+
+[moreInfo]
+other = "Mere Information"
+
+[getCareerGuidance]
+other = "Få Karrierevejledning"
+
+[attendEvent]
+other = "Deltag i et Arrangement"
+
+[takeAction]
+other = "Kom i Gang"
+
+[getInvolved]
+other = "Vær Med"
+
+[getInvolvedIntro]
+other = "Der er mange måder at gøre en forskel på allerede i dag"
+
+[attendEventTitle]
+other = "Deltag i et Arrangement"
+
+[attendEventDesc]
+other = "Mød ligesindede til sociale arrangementer, foredrag og workshops i hele Danmark."
+
+[joinSlack]
+other = "Kom med på Slack"
+
+[joinSlackDesc]
+other = "Chat med det danske EA-fællesskab, stil spørgsmål, og følg med i hvad der sker."
+
+[getCareerAdvice]
+other = "Få Karrierevejledning"
+
+[getCareerAdviceDesc]
+other = "Book en gratis en-til-en snak om, hvordan du kan få større impact med din karriere."
+
+[startDonating]
+other = "Begynd at Donere Effektivt"
+
+[startDonatingDesc]
+other = "Giv hvor det betyder mest gennem vores partner, Giv Effektivt."
+
+[whatIsEA]
+other = "Hvad er effektiv altruisme?"
+
+[whatIsEADesc1]
+other = "Mange ønsker at gøre en meningsfuld forskel i verden. At opleve lidelse, uretfærdighed og død får os til at ville handle. Men at finde en konkret løsning på disse problemer, og ikke mindst at implementere den, er ikke ligetil."
+
+[whatIsEADesc2]
+other = "Det er præcis det, effektiv altruisme forsøger at løse. Effektiv altruisme er et forskningsfelt, der handler om at maksimere effekten af vores indsats for at hjælpe andre. Ved hjælp af solid evidens og grundige overvejelser forsøger vi at besvare spørgsmålet om, hvordan vi hjælper andre mest effektivt."
+
+[community]
+other = "Fællesskab"
+
+[findChapter]
+other = "Find Din Lokalforening"
+
+[findChapterIntro]
+other = "Find effektive altruister i din by"
+
+[learnMoreLabel]
+other = "Læs Mere"
+
+[faqLabel]
+other = "Ofte Stillede Spørgsmål"
+
+[faqWhatIsEA]
+other = "Hvad er effektiv altruisme?"
+
+[faqWhatIsEAAnswer]
+other = "Effektiv altruisme er et forskningsfelt og fællesskab, der er dedikeret til at finde de bedste måder at hjælpe andre på. Det bruger evidens til at finde de mest effektive måder at forbedre verden på. Det handler ikke bare om at spørge \"Hvordan kan jeg gøre en forskel?\" men \"Hvordan kan jeg gøre den <em>største</em> forskel?\""
+
+[faqGetInvolved]
+other = "Hvordan kan jeg være med?"
+
+[faqGetInvolvedAnswer]
+other = "Der er mange måder at komme i gang på! Du kan deltage i et af vores arrangementer, tilmelde dig en introduktionslæsegruppe, booke en gratis karrieresnak, eller starte med at besøge <a href=\"https://giveffektivt.dk\">Giv Effektivt</a> for at lære om effektiv donation."
+
+[faqDonate]
+other = "Hvor bør jeg donere?"
+
+[faqDonateAnswer]
+other = "Vi anbefaler at donere gennem <a href=\"https://giveffektivt.dk\">Giv Effektivt</a>, vores danske søsterorganisation. De følger forskning fra GiveWell og andre evalueringsorganer for at anbefale velgørenhedsorganisationer, der redder flest liv per doneret krone. Du får også dansk skattefradrag."
+
+[faqOnlyMoney]
+other = "Handler EA kun om at donere penge?"
+
+[faqOnlyMoneyAnswer]
+other = "Slet ikke! Selvom effektiv donation er en vigtig del, omfatter EA også karrierevalg, frivilligt arbejde, forskning og fællesskab. Mange oplever, at valget af karriere er en af de beslutninger med størst impact. Vores karrierevejledning kan hjælpe dig med at tænke dine muligheder igennem."
+
+[mediaCoverage]
+other = "Mediedækning"
+
+[chaptersIntro]
+other = "Effektiv Altruisme Danmark har aktive lokalforeninger over hele landet. Find dit lokale fællesskab og bliv involveret i arrangementer, diskussioner og projekter nær dig."

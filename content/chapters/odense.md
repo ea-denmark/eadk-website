@@ -5,5 +5,4 @@ icon: "ODE"
 weight: 3
 ---
 
-<!-- TODO: Replace with Odense chapter Google Calendar ID -->
-{{< gcal src="YOUR_ODE_CALENDAR_ID@group.calendar.google.com" >}}
+This page is under construction. Find the newest information about events at SDU Odense on our [Facebook page](https://www.facebook.com/groups/easdu). 
