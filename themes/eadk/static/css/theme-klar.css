@@ -623,6 +623,17 @@ body.theme-klar .content hr { border-top: 2px solid var(--rule); margin: 4.5rem 
 body.theme-klar .content hr + p { margin-top: 2rem; font-weight: 500; letter-spacing: -0.015em; }
 body.theme-klar .content hr + p a { text-decoration-color: var(--red); }
 
+/* ---- Promo card: square corners, and the fill wipes white ---------------- */
+body.theme-klar .promo,
+body.theme-klar .content a.promo__cta { border-radius: 0; }
+body.theme-klar .content a.promo__cta::before { background: #fff; }
+body.theme-klar .content a.promo__cta:hover { color: var(--red); border-color: #fff; }
+/* The flag red is far brighter than the other variants' brand field: text on
+   it has to stay at full white to hold its contrast. */
+body.theme-klar .content .promo p,
+body.theme-klar .content .promo ul,
+body.theme-klar .content .promo li { color: #fff; }
+
 /* Nav switches to the burger at 900px, matching the base stylesheet. */
 @media (max-width: 940px) {
   body.theme-klar .main-nav { background: var(--paper); border-bottom: 2px solid var(--rule); box-shadow: none; }
