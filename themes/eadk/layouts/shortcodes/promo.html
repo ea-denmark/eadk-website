@@ -1,0 +1,16 @@
+{{- /*
+  Promo — a brand-coloured announcement for the right-hand column of a page.
+  The body copy of the page runs beside it; the next heading and any embed
+  clear it, so nothing downstream gets squeezed.
+
+  {{< promo title="…" cta="Sign up" ctaurl="…" >}}
+  One short paragraph, then a bullet list of the practical facts.
+  {{< /promo >}}
+*/ -}}
+<aside class="promo">
+  {{- with .Get "title" }}<h2 class="promo__title">{{ . }}</h2>{{ end }}
+  {{ .Inner | markdownify }}
+  {{- with .Get "cta" }}
+  <a class="promo__cta btn" href="{{ $.Get "ctaurl" }}" target="_blank" rel="noopener">{{ . }}</a>
+  {{- end }}
+</aside>

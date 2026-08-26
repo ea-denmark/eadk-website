@@ -823,6 +823,38 @@ body:is(.theme-norge, .theme-roed) .content hr + p a {
 }
 body:is(.theme-norge, .theme-roed) .content hr + p a:hover { text-decoration-color: var(--brand); }
 
+/* ---- Promo card: on the type scale, and the hero's tinted pill ----------- */
+body:is(.theme-norge, .theme-roed) .content .promo__title {
+  font-size: var(--t-h3);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+/* The paper white, not a pure one: the same off-white the hero sets on brand,
+   held at one step of dimming for the detail and full strength for the labels. */
+body:is(.theme-norge, .theme-roed) .content .promo p,
+body:is(.theme-norge, .theme-roed) .content .promo ul,
+/* .content li is set to ink for the page; on the brand field it has to be
+   taken back explicitly or the detail beside each bold lead-in goes dark. */
+body:is(.theme-norge, .theme-roed) .content .promo li {
+  font-size: var(--t-sm);
+  color: rgba(250, 248, 244, 0.88);
+}
+body:is(.theme-norge, .theme-roed) .content .promo strong { color: var(--paper); }
+/* The same tinted pill the hero's primary CTA is, on the same field. */
+body:is(.theme-norge, .theme-roed) .content a.promo__cta {
+  background: var(--tint);
+  border-color: var(--tint);
+  color: var(--ink);
+  font-size: var(--t-sm);
+  padding: 0.6rem 1.4rem;
+}
+body:is(.theme-norge, .theme-roed) .content a.promo__cta:hover {
+  background: var(--tint-2);
+  border-color: var(--tint-2);
+  color: var(--ink);
+}
+
 /* Nav switches to the burger at 900px, matching the base stylesheet. */
 @media (max-width: 940px) {
   body:is(.theme-norge, .theme-roed) .main-nav { background: var(--paper); border-bottom-color: var(--hair); box-shadow: none; }
