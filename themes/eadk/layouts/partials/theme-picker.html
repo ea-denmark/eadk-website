@@ -1,29 +1,26 @@
-{{- if and .Site.Params.themePicker hugo.IsDevelopment }}
+{{- /*
+  Design switcher — review branch only.
+
+  Unlike on main, this renders in production builds too: the point of the
+  design-preview branch is that it can be deployed and sent round for people
+  to click through. It is still gated on the themePicker param, so setting
+  that to false takes it out again.
+
+  Do not merge this branch into main.
+*/ -}}
+{{- if .Site.Params.themePicker }}
 <div class="variant-picker" role="group" aria-label="Design variant">
   <span class="variant-picker__label">Design</span>
-  <button type="button" data-variant="">Original</button>
+  <button type="button" data-variant="roed">Current</button>
   <button type="button" data-variant="klar">Klar</button>
-  <button type="button" data-variant="norge">Norge</button>
-  <button type="button" data-variant="roed">Norge Rød</button>
   <span class="variant-picker__sep"></span>
   <span class="variant-picker__label variant-picker__label--hero">Hero</span>
-  <button type="button" data-hero="">Now</button>
-  <button type="button" data-hero="hero-a">Quiet</button>
-  <button type="button" data-hero="hero-b">Split</button>
+  <button type="button" data-hero="">Current</button>
   <button type="button" data-hero="hero-c">Bleed</button>
-  <span class="variant-picker__sep"></span>
+  <span class="variant-picker__sep variant-picker__sep--hero"></span>
   <span class="variant-picker__label variant-picker__label--hero">Photo</span>
   <button type="button" data-photo="">Event</button>
   <button type="button" data-photo="photo-cph">København</button>
-  <span class="variant-picker__sep variant-picker__sep--accent"></span>
-  <span class="variant-picker__label variant-picker__label--accent">Accent</span>
-  <button type="button" data-accent="">Dannebrog</button>
-  <button type="button" data-accent="accent-ox">Oxblood</button>
-  <span class="variant-picker__sep variant-picker__sep--about"></span>
-  <span class="variant-picker__label variant-picker__label--about">About</span>
-  <button type="button" data-about="">Column</button>
-  <button type="button" data-about="about-b">Rail</button>
-  <button type="button" data-about="about-c">Bands</button>
 </div>
 
 <style>
@@ -70,21 +67,12 @@
     margin: 4px 6px;
     background: rgba(255, 255, 255, 0.18);
   }
-  /* The hero group only means anything for the Norge-family variants. */
+  /* Klar's hero is type alone — no photograph to swap and no bleed to draw —
+     so both of those groups only apply to the current design. */
   .variant-picker:not([data-hero-visible]) .variant-picker__sep,
   .variant-picker:not([data-hero-visible]) [data-hero],
   .variant-picker:not([data-hero-visible]) [data-photo],
   .variant-picker:not([data-hero-visible]) .variant-picker__label--hero { display: none; }
-  /* "Quiet" draws no photo, so the photo group has nothing to act on. */
-  .variant-picker[data-photo-muted] [data-photo] { opacity: 0.35; pointer-events: none; }
-  /* The accent group only applies to Klar. */
-  .variant-picker:not([data-accent-visible]) .variant-picker__sep--accent,
-  .variant-picker:not([data-accent-visible]) [data-accent],
-  .variant-picker:not([data-accent-visible]) .variant-picker__label--accent { display: none; }
-  /* The About group only exists on pages that have the About layout. */
-  .variant-picker:not([data-about-visible]) .variant-picker__sep--about,
-  .variant-picker:not([data-about-visible]) [data-about],
-  .variant-picker:not([data-about-visible]) .variant-picker__label--about { display: none; }
   @media (max-width: 640px) {
     .variant-picker { bottom: 10px; padding: 4px; }
     .variant-picker__label { display: none; }
@@ -99,32 +87,12 @@
     if (!picker) return;
     var keys = ['klar', 'norge', 'roed'];
 
-    var heroes = ['hero-a', 'hero-b', 'hero-c'];
-
     function applyHero(h) {
-      heroes.forEach(function (k) { document.body.classList.toggle(k, k === h); });
+      document.body.classList.toggle('hero-c', h === 'hero-c');
       picker.querySelectorAll('[data-hero]').forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.dataset.hero === h));
       });
-      if (h === 'hero-a') picker.setAttribute('data-photo-muted', '');
-      else picker.removeAttribute('data-photo-muted');
       try { localStorage.setItem('eadk-hero', h); } catch (e) {}
-    }
-
-    function applyAbout(a) {
-      ['about-b', 'about-c'].forEach(function (k) { document.body.classList.toggle(k, k === a); });
-      picker.querySelectorAll('[data-about]').forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.dataset.about === a));
-      });
-      try { localStorage.setItem('eadk-about', a); } catch (e) {}
-    }
-
-    function applyAccent(a) {
-      document.body.classList.toggle('accent-ox', a === 'accent-ox');
-      picker.querySelectorAll('[data-accent]').forEach(function (b) {
-        b.setAttribute('aria-pressed', String(b.dataset.accent === a));
-      });
-      try { localStorage.setItem('eadk-accent', a); } catch (e) {}
     }
 
     function applyPhoto(p) {
@@ -137,13 +105,10 @@
 
     function apply(v) {
       keys.forEach(function (k) { document.body.classList.toggle('theme-' + k, k === v); });
-      if (v === 'norge' || v === 'roed') picker.setAttribute('data-hero-visible', '');
+      if (v === 'roed') picker.setAttribute('data-hero-visible', '');
       else { picker.removeAttribute('data-hero-visible'); applyHero(''); applyPhoto(''); }
-      if (v === 'klar') picker.setAttribute('data-accent-visible', '');
-      else { picker.removeAttribute('data-accent-visible'); applyAccent(''); }
-      if (v) { document.documentElement.setAttribute('data-variant', v); }
-      else { document.documentElement.removeAttribute('data-variant'); }
-      picker.querySelectorAll('button').forEach(function (b) {
+      document.documentElement.setAttribute('data-variant', v);
+      picker.querySelectorAll('[data-variant]').forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.dataset.variant === v));
       });
       try { localStorage.setItem('eadk-variant', v); } catch (e) {}
@@ -154,38 +119,26 @@
       if (!b) return;
       if (b.hasAttribute('data-hero')) applyHero(b.dataset.hero);
       else if (b.hasAttribute('data-photo')) applyPhoto(b.dataset.photo);
-      else if (b.hasAttribute('data-accent')) applyAccent(b.dataset.accent);
-      else if (b.hasAttribute('data-about')) applyAbout(b.dataset.about);
       else apply(b.dataset.variant);
     });
 
-    // 1–5 cycle through the variants.
+    // 1 and 2 switch design without reaching for the switcher.
     document.addEventListener('keydown', function (e) {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (/^(input|textarea|select)$/i.test(e.target.tagName)) return;
-      var i = ['1', '2', '3', '4'].indexOf(e.key);
-      if (i > -1) apply(['', 'klar', 'norge', 'roed'][i]);
+      var i = ['1', '2'].indexOf(e.key);
+      if (i > -1) apply(['roed', 'klar'][i]);
     });
 
-    apply(document.documentElement.getAttribute('data-variant') || '');
-    var savedHero = '';
-    try { savedHero = localStorage.getItem('eadk-hero') || ''; } catch (e) {}
+    // The current design is what the site ships, so it is what an unvisited
+    // browser opens on.
+    apply(document.documentElement.getAttribute('data-variant') || 'roed');
     if (picker.hasAttribute('data-hero-visible')) {
-      applyHero(savedHero);
-      var savedPhoto = '';
+      var savedHero = '', savedPhoto = '';
+      try { savedHero = localStorage.getItem('eadk-hero') || ''; } catch (e) {}
       try { savedPhoto = localStorage.getItem('eadk-photo') || ''; } catch (e) {}
+      applyHero(savedHero);
       applyPhoto(savedPhoto);
-    }
-    if (document.querySelector('.about')) {
-      picker.setAttribute('data-about-visible', '');
-      var savedAbout = '';
-      try { savedAbout = localStorage.getItem('eadk-about') || ''; } catch (e) {}
-      applyAbout(savedAbout);
-    }
-    if (picker.hasAttribute('data-accent-visible')) {
-      var savedAccent = '';
-      try { savedAccent = localStorage.getItem('eadk-accent') || ''; } catch (e) {}
-      applyAccent(savedAccent);
     }
   })();
 </script>

@@ -14,8 +14,10 @@ body.theme-klar {
   --grey-2: #9a9a9a;
   --rule:   #0a0a0a;
   --hair:   rgba(10, 10, 10, 0.16);
-  --red:    #e4002b;
-  --red-2:  #b30022;
+  /* EA Denmark's own oxblood, the same red the live site carries — the
+     international style holds without borrowing the flag's. */
+  --red:    #8b1a2b;
+  --red-2:  #6b1420;
 
   --color-primary:      var(--red);
   --color-primary-dark: var(--red-2);
@@ -576,11 +578,6 @@ body.theme-klar .form-group textarea:focus { border-color: var(--red); box-shado
    the same red Norge Rød uses. Every red in this file goes through var(--red),
    so the two declarations below are the whole change.
    ========================================================================== */
-body.theme-klar.accent-ox {
-  --red:   #8b1a2b;
-  --red-2: #6b1420;
-}
-
 /* ---- Sign-off block: two fields divided by a rule, no boxes -------------- */
 
 body.theme-klar .contact-social a { text-decoration: underline; text-decoration-color: var(--red); }

@@ -68,7 +68,8 @@ defaultContentLanguageInSubdir = false
 [params]
   # Design variants: theme = "klar" | "norge" | "roed".
   # themePicker shows a floating switcher for comparing them side by side.
-  # It only renders under `hugo server`; production builds never include it.
+  # On this review branch it renders in production builds too, so the branch
+  # can be deployed and sent round; on main it is dev-only. Do not merge.
   theme = "roed"
   themePicker = true
   email = "contact@effectivealtruism.dk"

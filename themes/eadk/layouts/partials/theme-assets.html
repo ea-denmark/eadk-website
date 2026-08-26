@@ -9,7 +9,7 @@
   so the variant file only has to carry what differs. "roed" is "norge" with a
   different brand hue, and shares everything else with it.
 
-  Pick one permanently:   [params] theme = "klar"      in hugo.toml
+  Pick one permanently:   [params] theme = "roed"      in hugo.toml
   Compare them live:      [params] themePicker = true  (floating switcher)
 */}}
 
@@ -20,16 +20,19 @@
   "roed"    "family=Inter:wght@400;500;600;700"
 -}}
 {{- $bases := dict "roed" "norge" -}}
-{{- $keys := slice "klar" "norge" "roed" -}}
+{{- /* The two designs on offer here. "norge" is not among them: it is only
+     loaded because "roed" declares it as its base. */ -}}
+{{- $keys := slice "klar" "roed" -}}
 
-{{- /* The switcher is a local review tool: never in a production build. */ -}}
-{{- $picker := and .Site.Params.themePicker hugo.IsDevelopment -}}
+{{- /* Review branch: the switcher ships in production builds too, so this
+     branch can be deployed and clicked through. See theme-picker.html. */ -}}
+{{- $picker := .Site.Params.themePicker -}}
 {{- $active := .Site.Params.theme -}}
 
 {{- /* Which font sets does this build need? */ -}}
 {{- $need := slice "default" -}}
 {{- if $picker -}}
-  {{- $need = $keys | append "default" -}}
+  {{- $need = $keys -}}
 {{- else if $active -}}
   {{- $need = slice $active -}}
 {{- end -}}
@@ -73,10 +76,20 @@
 <script>
   // Apply the remembered variant before first paint so there is no flash.
   (function () {
-    try {
-      var t = localStorage.getItem('eadk-variant');
-      if (t) document.documentElement.setAttribute('data-variant', t);
-    } catch (e) {}
+    var t = 'roed';
+    try { t = localStorage.getItem('eadk-variant') || 'roed'; } catch (e) {}
+    document.documentElement.setAttribute('data-variant', t);
+    if (t === 'roed') return;
+    // The class the template printed is the default one. Swap it the moment
+    // <body> is parsed — before anything paints — rather than waiting for the
+    // switcher's own script at the end of the document.
+    new MutationObserver(function (records, observer) {
+      if (!document.body) return;
+      ['klar', 'norge', 'roed'].forEach(function (k) {
+        document.body.classList.toggle('theme-' + k, k === t);
+      });
+      observer.disconnect();
+    }).observe(document.documentElement, { childList: true });
   })();
 </script>
 {{- end }}
