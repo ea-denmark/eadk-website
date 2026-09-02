@@ -4,16 +4,6 @@ subtitle: "Deltag i vores kommende arrangementer"
 slug: "arrangementer"
 ---
 
-{{< promo title="EA Danmark Retreat 2026" cta="Tilmeld dig" ctaurl="https://forms.gle/iWjwurneU4yvQ4aP7" >}}
-Vi gentager succesen fra 2025: en weekend med oplæg, workshops og tid til at lære hinanden at kende.
-
-- **Tid:** 18.–20. september
-- **Sted:** Grædsrodsgården, Bregningevej 6, 4593 Eskebjerg
-- **Pris:** Omkring 500 kr. (alt efter din situation)
-- **Mad:** Alle måltider (veganske) inkluderet
-
-{{< /promo >}}
-
 Tjek vores sociale medier for de seneste arrangementer, eller tilmeld dig vores nyhedsbrev for at holde dig opdateret.
 
 Vi afholder regelmæssigt:
