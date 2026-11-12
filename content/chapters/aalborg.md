@@ -14,6 +14,8 @@ We currently run **monthly reading groups**, where you can meet fellow EAs and d
 - [Can we save the world without systemic change?](https://fb.me/e/4HxMcsD9N)
 - What even is effective altruism?
 
+<!--rail-->
+
 ## Stay in the loop
 
 The best way to stay on top of future events is our [Facebook group](https://www.facebook.com/groups/950178366641826/), or by [joining our newsletter](https://forms.gle/PMebQB61irRBh4vA7).

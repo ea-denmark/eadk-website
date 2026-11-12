@@ -15,6 +15,8 @@ Vi holder for tiden **månedlige møder**. Det er en god mulighed for at møde a
 - [Kan vi redde verden uden at ændre den?](https://fb.me/e/4HxMcsD9N)
 - Hvad er effektiv altruisme egentlig?
 
+<!--rail-->
+
 ## Hold dig opdateret
 
 Den bedste måde at følge med i kommende arrangementer er vores [Facebook-gruppe](https://www.facebook.com/groups/950178366641826/) eller ved at [tilmelde dig vores nyhedsbrev](https://forms.gle/PMebQB61irRBh4vA7).

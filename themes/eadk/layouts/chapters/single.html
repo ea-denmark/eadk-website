@@ -7,9 +7,20 @@
   </div>
 </section>
 
+{{- /* A chapter page can mark where its sidebar starts with an HTML comment
+     on its own line: <!--rail-->. Everything after it is rendered as an
+     <aside>. In the default layout the aside simply follows the main text;
+     the "Sidebar" column option in the design switcher lifts it into a
+     right-hand rail. */ -}}
+{{- $parts := split .Content "<!--rail-->" }}
 <section class="section">
-  <div class="container content">
+  <div class="container content{{ if gt (len $parts) 1 }} chapter-layout{{ end }}">
+  {{- if gt (len $parts) 1 }}
+    <div class="chapter-main">{{ index $parts 0 | safeHTML }}</div>
+    <aside class="chapter-rail">{{ index $parts 1 | safeHTML }}</aside>
+  {{- else }}
     {{ .Content }}
+  {{- end }}
   </div>
 </section>
 

@@ -21,6 +21,11 @@
   <span class="variant-picker__label variant-picker__label--hero">Photo</span>
   <button type="button" data-photo="">Event</button>
   <button type="button" data-photo="photo-cph">København</button>
+  <span class="variant-picker__sep variant-picker__sep--hero"></span>
+  <span class="variant-picker__label variant-picker__label--hero">Column</span>
+  <button type="button" data-col="">Left</button>
+  <button type="button" data-col="col-center">Centred</button>
+  <button type="button" data-col="col-rail">Sidebar</button>
 </div>
 
 <style>
@@ -33,6 +38,10 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: max-content;
+    max-width: calc(100vw - 20px);
     padding: 5px 6px;
     border-radius: 999px;
     background: rgba(18, 18, 20, 0.86);
@@ -72,9 +81,10 @@
   .variant-picker:not([data-hero-visible]) .variant-picker__sep,
   .variant-picker:not([data-hero-visible]) [data-hero],
   .variant-picker:not([data-hero-visible]) [data-photo],
+  .variant-picker:not([data-hero-visible]) [data-col],
   .variant-picker:not([data-hero-visible]) .variant-picker__label--hero { display: none; }
   @media (max-width: 640px) {
-    .variant-picker { bottom: 10px; padding: 4px; }
+    .variant-picker { bottom: 10px; padding: 4px; border-radius: 18px; }
     .variant-picker__label { display: none; }
     .variant-picker button { padding: 7px 10px; font-size: 11px; }
   }
@@ -103,10 +113,18 @@
       try { localStorage.setItem('eadk-photo', p); } catch (e) {}
     }
 
+    function applyCol(c) {
+      ['col-center', 'col-rail'].forEach(function (k) { document.body.classList.toggle(k, k === c); });
+      picker.querySelectorAll('[data-col]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.dataset.col === c));
+      });
+      try { localStorage.setItem('eadk-col', c); } catch (e) {}
+    }
+
     function apply(v) {
       keys.forEach(function (k) { document.body.classList.toggle('theme-' + k, k === v); });
       if (v === 'roed') picker.setAttribute('data-hero-visible', '');
-      else { picker.removeAttribute('data-hero-visible'); applyHero(''); applyPhoto(''); }
+      else { picker.removeAttribute('data-hero-visible'); applyHero(''); applyPhoto(''); applyCol(''); }
       document.documentElement.setAttribute('data-variant', v);
       picker.querySelectorAll('[data-variant]').forEach(function (b) {
         b.setAttribute('aria-pressed', String(b.dataset.variant === v));
@@ -119,6 +137,7 @@
       if (!b) return;
       if (b.hasAttribute('data-hero')) applyHero(b.dataset.hero);
       else if (b.hasAttribute('data-photo')) applyPhoto(b.dataset.photo);
+      else if (b.hasAttribute('data-col')) applyCol(b.dataset.col);
       else apply(b.dataset.variant);
     });
 
@@ -134,11 +153,13 @@
     // browser opens on.
     apply(document.documentElement.getAttribute('data-variant') || 'roed');
     if (picker.hasAttribute('data-hero-visible')) {
-      var savedHero = '', savedPhoto = '';
+      var savedHero = '', savedPhoto = '', savedCol = '';
       try { savedHero = localStorage.getItem('eadk-hero') || ''; } catch (e) {}
       try { savedPhoto = localStorage.getItem('eadk-photo') || ''; } catch (e) {}
+      try { savedCol = localStorage.getItem('eadk-col') || ''; } catch (e) {}
       applyHero(savedHero);
       applyPhoto(savedPhoto);
+      applyCol(savedCol);
     }
   })();
 </script>

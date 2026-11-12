@@ -869,8 +869,64 @@ body:is(.theme-norge, .theme-roed) .chapter-hero > .container { width: 100%; }
 
 /* Narrow pages ("What is EA?") cap the body at 1040px, and .container's auto
    margins centred that box, so the body started ~80px right of the page title,
-   which sits on the full-width container's edge. Pin it to that same left
-   edge instead. */
-body:is(.theme-norge, .theme-roed) .content--narrow {
+   which sits on the full-width container's edge. Outside the centred layout,
+   pin it to that same left edge instead. */
+body:is(.theme-norge, .theme-roed):not(.col-center) .content--narrow {
   margin-left: max(0px, calc((100% - var(--max-width)) / 2));
+}
+
+/* ---- Column placement (design-preview switcher) ---------------------------
+   Prose is held to a 44rem measure. By default that column sits against the
+   left edge of the 1320px container, leaving the right side empty on wide
+   screens. Two alternatives, toggled by a body class from the switcher:
+
+   .col-center  the whole page column — header, hero and body — is narrowed
+                to the measure and centred, so the empty space splits evenly.
+   .col-rail    chapter pages that mark a sidebar with <!--rail--> lift it
+                into a right-hand column. Elsewhere it behaves like Left.
+   ------------------------------------------------------------------------- */
+
+/* Chapter pages wrap their text in .chapter-main, so the measure and the
+   first-child reset have to reach one level further in. */
+body:is(.theme-norge, .theme-roed) .chapter-main > :is(p, ul, ol, h2, h3, h4) { max-width: 44rem; }
+body:is(.theme-norge, .theme-roed) .chapter-main > *:first-child { margin-top: 0; }
+
+/* Centred */
+body:is(.theme-norge, .theme-roed).col-center .section > .container.content,
+body:is(.theme-norge, .theme-roed).col-center .page-header > .container,
+body:is(.theme-norge, .theme-roed).col-center .chapter-hero > .container,
+body:is(.theme-norge, .theme-roed).col-center .page-hero-content {
+  max-width: calc(44rem + 3rem);
+}
+
+/* Sidebar */
+@media (min-width: 960px) {
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 44rem) minmax(17rem, 21rem);
+    justify-content: space-between;
+    column-gap: 4rem;
+    align-items: start;
+  }
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail {
+    padding-left: 2rem;
+    border-left: 1px solid var(--hair);
+  }
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail > *:first-child { margin-top: 0; }
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail h2 {
+    font-size: var(--t-base);
+    font-weight: 600;
+    letter-spacing: 0;
+    margin: 2.25rem 0 0.75rem;
+  }
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail p,
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail li {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  body:is(.theme-norge, .theme-roed).col-rail .chapter-rail .team-grid--horizontal {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin: 1rem 0 1.5rem;
+  }
 }
