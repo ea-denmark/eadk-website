@@ -860,3 +860,9 @@ body:is(.theme-norge, .theme-roed) .content a.promo__cta:hover {
   body:is(.theme-norge, .theme-roed) .main-nav { background: var(--paper); border-bottom-color: var(--hair); box-shadow: none; }
   body:is(.theme-norge, .theme-roed) .nav-dropdown-menu { background: var(--paper-2); }
 }
+
+/* The chapter hero is a flex box, so its .container shrank to the title's
+   width and its auto margins centred it: the title sat mid-page above
+   left-aligned text. Full width puts it back on the left edge with the
+   body, as .page-hero-content already is. */
+body:is(.theme-norge, .theme-roed) .chapter-hero > .container { width: 100%; }
