@@ -13,7 +13,7 @@ Vi er et jordnært fællesskab, der interesserer os for, om det nytter at hjælp
 
 Vi holder alt fra arrangementer og workshops til sociale møder og co-working. Det kan være en hyggelig aften, hvor vi diskuterer etiske dilemmaer over lækker vegansk mad, en workshop om hvordan du bruger din karriere til at gøre mest gavn, eller nogle timers co-working, hvor teorien bliver omsat til handling i et fokuseret og støttende miljø.
 
-Du kan lære meget mere om EA gennem vores arrangementer, så kom gern  forbi og sig hej! Detaljerne bliver lagt op på Facebook og Slack, samt sendt ud med nyhedsbrevet.
+Du kan lære meget mere om EA gennem vores arrangementer, så kom gerne forbi og sig hej! Detaljerne bliver lagt op på Facebook og Slack, samt sendt ud med nyhedsbrevet.
 
 - [Facebook-gruppe](https://www.facebook.com/groups/easdu)
 - [Slack]({{< param slackInviteURL >}})
