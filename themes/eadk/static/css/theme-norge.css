@@ -866,3 +866,11 @@ body:is(.theme-norge, .theme-roed) .content a.promo__cta:hover {
    left-aligned text. Full width puts it back on the left edge with the
    body, as .page-hero-content already is. */
 body:is(.theme-norge, .theme-roed) .chapter-hero > .container { width: 100%; }
+
+/* Narrow pages ("What is EA?") cap the body at 1040px, and .container's auto
+   margins centred that box, so the body started ~80px right of the page title,
+   which sits on the full-width container's edge. Pin it to that same left
+   edge instead. */
+body:is(.theme-norge, .theme-roed) .content--narrow {
+  margin-left: max(0px, calc((100% - var(--max-width)) / 2));
+}
