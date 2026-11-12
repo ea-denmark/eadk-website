@@ -8,7 +8,7 @@ weight: 4
 
 If you are based in Aalborg or the wider North Jutland, this is the local group for you.
 
-We currently run **monthly reading groups**, where you can meet fellow EAs and discuss topics such as:
+We currently run monthly reading groups, where you can meet fellow EAs and discuss topics such as:
 
 - [Does helping even matter?](https://fb.me/e/6ZHoe1ftC)
 - [Can we save the world without systemic change?](https://fb.me/e/4HxMcsD9N)

@@ -9,7 +9,7 @@ url: "/da/lokalforeninger/aalborg/"
 
 Dette er lokalforeningen for dig, der bor i Aalborg eller i resten af Nordjylland.
 
-Vi holder for tiden **månedlige møder**. Det er en god mulighed for at møde andre med interesse for effektiv altruisme. Møderne tager udgangspunkt i et emne fra effektiv altruisme, som vi bruger til at sætte samtalen i gang. Det kunne for eksempel være:
+Vi holder for tiden månedlige møder. Det er en god mulighed for at møde andre med interesse for effektiv altruisme. Møderne tager udgangspunkt i et emne fra effektiv altruisme, som vi bruger til at sætte samtalen i gang. Det kunne for eksempel være:
 
 - [Nytter det overhovedet at hjælpe?](https://fb.me/e/6ZHoe1ftC)
 - [Kan vi redde verden uden at ændre den?](https://fb.me/e/4HxMcsD9N)
